@@ -136,7 +136,6 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/tpope/vim-markdown.git'
-NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/tsaleh/vim-align.git'
 NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
 NeoBundle 'git://github.com/scrooloose/nerdtree.git'
@@ -147,7 +146,14 @@ NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
 NeoBundle 'git://github.com/airblade/vim-gitgutter.git'
-NeoBundle 'gtags.vim'
+NeoBundle 'git://github.com/Shougo/vimproc.git', {
+          \   'build' : {
+          \       'windows' : 'make -f make_mingw32.mak',
+          \       'cygwin' : 'make -f make_cygwin.mak',
+          \       'mac' : 'make -f make_mac.mak',
+          \       'unix' : 'make -f make_unix.mak',
+          \   },
+          \}
 
 " === Plugin Settings ===
 " neocomplcache
@@ -196,19 +202,3 @@ nnoremap <silent> <C-e> :NERDTreeToggle<CR>
 
 " Powerline
 let g:Powerline_symbols='fancy'
-
-" gtags
-" 検索結果windowを閉じる
-nnoremap <C-z> <C-w><C-w>:q<CR>
-" Grep 準備
-nnoremap <C-g> :Gtags -g
-" このファイルの関数一覧
-nnoremap <C-l> :Gtags -f %<CR>
-" カーソル以下の定義もとを探す
-nnoremap <C-j> :Gtags <C-r><C-w><CR>
-" カーソル以下の使用箇所を探す
-nnoremap <C-k> :Gtags -r <C-r><C-w><CR>
-" 次の検索結果
-nnoremap <C-n> :cn<CR>
-" 前の検索結果
-nnoremap <C-p> :cp<CR>
