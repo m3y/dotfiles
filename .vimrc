@@ -57,13 +57,6 @@ augroup highlightldegraphicSpace
   autocmd ColorScheme * highlight ldeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
   autocmd VimEnter,WinEnter * match ldeographicSpace /　/
 augroup END
-" カラー表示
-" ex) default, elflord, morning, perchpuff, torte, blue, delek, evening
-"     , murphy, ron, zellner, darkblue, desert, koehler, pablo, shine
-"syntax enable
-"colorscheme elflord
-"" 行番号設定
-"highlight LineNr ctermfg=2
 
 " === 機能まわり ===
 " vi互換モードにしない
@@ -113,11 +106,11 @@ augroup template
 augroup END
 
 " === PHP 設定 ===
-"augroup phpsyntaxcheck
-"  autocmd!
-"  autocmd BufWrite *.php w !php -l
-"  autocmd BufWrite *.inc w !php -l
-"augroup END
+augroup phpsyntaxcheck
+  autocmd!
+  autocmd BufWrite *.php w !php -l
+  autocmd BufWrite *.inc w !php -l
+augroup END
 
 " === Plugins ===
 " neobundle
@@ -128,6 +121,21 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 filetype plugin indent on
+
+function! s:bundle_tap(bundle)
+  let s:tapped_bundle = neobundle#get(a:bundle)
+  return neobundle#is_installed(a:bundle)
+endfunction
+
+function! s:bundle_config(config)
+  if exists("s:tapped_bundle") && s:tapped_bundle != {}
+    call neobundle#config(s:tapped_bundle.name, a:config)
+  endif
+endfunction
+
+function! s:bundle_untap()
+  let s:tapped_bundle = {}
+endfunction
 
 " -- Plugin list --
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
@@ -175,13 +183,13 @@ augroup END
 let g:quickrun_config = {'markdown': {'command': 'convert_md'}}
 augroup QuickRunPHPUnit
   autocmd!
-  autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.phpunit
+  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit.php
 augroup END
 
 let g:quickrun_config['_'] = {'runner': 'vimproc', 'runner/vimproc/updatetime': 40,}
-let g:quickrun_config['php.phpunit'] = {}
-let g:quickrun_config['php.phpunit']['command'] = 'phpunit'
-let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
+let g:quickrun_config['phpunit.php'] = {}
+let g:quickrun_config['phpunit.php']['command'] = 'phpunit'
+let g:quickrun_config['phpunit.php']['exec'] = '%c %o %s'
 
 " vim-ref
 let g:ref_phpmanual_path = '/home/msy/.vim/dict/phpmanual'
@@ -202,58 +210,58 @@ nnoremap <silent> <C-e> :NERDTreeToggle<CR>
 
 " lightline
 let g:lightline = {
-        \ 'colorscheme': 'solarized',
-        \ 'mode_map': { 'c': 'NORMAL' },
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'MyModified',
-        \   'readonly': 'MyReadonly',
-        \   'fugitive': 'MyFugitive',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode',
-        \ },
-        \ 'separator': { 'left': '⮀', 'right': '⮂' },
-        \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-        \ }
+      \ 'colorscheme': 'solarized',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
 
 function! MyModified()
-    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
 endfunction
 
 function! MyFilename()
-    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-         \  &ft == 'unite' ? unite#get_status_string() :
-         \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-         \ '' != expand('%t') ? expand('%t') : '[No Name]') .
-         \ ('' != MyModified() ? ' ' . MyModified() : '')
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+       \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+       \  &ft == 'unite' ? unite#get_status_string() :
+       \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+       \ '' != expand('%t') ? expand('%t') : '[No Name]') .
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyFugitive()
-    return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? '⭠ '.fugitive#head() : ''
+  return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? '⭠ '.fugitive#head() : ''
 endfunction
 
 function! MyFileformat()
-    return winwidth('.') > 70 ? &fileformat : ''
+  return winwidth('.') > 70 ? &fileformat : ''
 endfunction
 
 function! MyFiletype()
-    return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! MyFileencoding()
-    return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+  return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
 
 function! MyMode()
-    return winwidth('.') > 60 ? lightline#mode() : ''
+  return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
