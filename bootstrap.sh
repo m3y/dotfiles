@@ -8,7 +8,7 @@ DIR=`pwd`
 [[ -f ~/.screenrc ]]     || ln -s ${DIR}/.screenrc     ~/.screenrc
 [[ -f ~/.gitconfig ]]    || ln -s ${DIR}/.gitconfig    ~/.gitconfig
 
-. ~/.bashrc
+source ~/.bashrc
 
 # neobundleの導入
 which git > /dev/null
