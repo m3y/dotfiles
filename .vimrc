@@ -153,7 +153,9 @@ NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
 NeoBundle 'git://github.com/airblade/vim-gitgutter.git'
-NeoBundle 'git://github.com/itchyny/lightline.vim'
+NeoBundle 'git://github.com/itchyny/lightline.vim.git'
+NeoBundle 'git://github.com/gregsexton/gitv.git'
+NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \   'build' : {
           \       'windows' : 'make -f make_mingw32.mak',
@@ -180,16 +182,36 @@ augroup END
 " $ make -f make_unix.mak
 
 " quickrun
-let g:quickrun_config = {'markdown': {'command': 'convert_md'}}
 augroup QuickRunPHPUnit
   autocmd!
-  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit.php
+  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit
 augroup END
 
-let g:quickrun_config['_'] = {'runner': 'vimproc', 'runner/vimproc/updatetime': 40,}
-let g:quickrun_config['phpunit.php'] = {}
-let g:quickrun_config['phpunit.php']['command'] = 'phpunit'
-let g:quickrun_config['phpunit.php']['exec'] = '%c %o %s'
+let g:quickrun_config = {'markdown': {'command': 'convert_md'}}
+let g:quickrun_config = {
+            \   "_" : {
+            \       "runner": "vimproc",
+            \       "runner/vimproc/updatetime": 60,
+            \       "outputter": "multi:buffer:quickfix",
+            \       "outputter/buffer/split": ":botright 8sp",
+            \       "outputter/buffer/append": 1,
+            \       "outputter/buffer/into": 0
+            \   },
+            \   "phpunit": {
+            \       "command": "./vendor/bin/phpunit",
+            \       "exec": '%c %o %s'
+            \   },
+            \   "markdown": {
+            \       "command": "convert_md"
+            \   }
+            \}
+
+" taglist
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+map <silent> <C-l> :TlistToggle<CR>
 
 " vim-ref
 let g:ref_phpmanual_path = '/home/msy/.vim/dict/phpmanual'
