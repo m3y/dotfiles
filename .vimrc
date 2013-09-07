@@ -178,9 +178,6 @@ augroup neocomplcache_settings
   autocmd FileType c setlocal omnifunc=ccomplete#Complete
 augroup END
 
-" vimproc
-" $ make -f make_unix.mak
-
 " quickrun
 augroup QuickRunPHPUnit
   autocmd!
@@ -215,6 +212,7 @@ map <silent> <C-l> :TlistToggle<CR>
 
 " vim-ref
 let g:ref_phpmanual_path = $HOME."/.vim/dict/phpmanual"
+map <C-m> :Ref phpmanual <C-r><C-w><CR>
 
 " solarized
 syntax enable
