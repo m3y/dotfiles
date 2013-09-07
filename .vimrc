@@ -100,9 +100,9 @@ nnoremap ,s. :<C-u>source $MYVIMRC<CR>
 augroup template
   autocmd!
   " .php
-  autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
+  autocmd BufNewFile *.php 0r $HOME/.vim/template/php_template.txt
   " .inc
-  autocmd BufNewFile *.inc 0r $HOME/.vim/template/php.txt
+  autocmd BufNewFile *.inc 0r $HOME/.vim/template/php_template.txt
 augroup END
 
 " === PHP 設定 ===
@@ -184,28 +184,28 @@ augroup END
 " quickrun
 augroup QuickRunPHPUnit
   autocmd!
-  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit
+  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit.php
 augroup END
 
 let g:quickrun_config = {'markdown': {'command': 'convert_md'}}
 let g:quickrun_config = {
-            \   "_" : {
-            \       "runner": "vimproc",
-            \       "runner/vimproc/updatetime": 60,
-            \       "outputter": "multi:buffer:quickfix",
-            \       "outputter/buffer/split": ":botright 8sp",
-            \       "outputter/buffer/append": 1,
-            \       "outputter/buffer/into": 0
+            \   '_' : {
+            \       'runner': 'vimproc',
+            \       'runner/vimproc/updatetime': 60,
+            \       'outputter': 'multi:buffer:quickfix',
+            \       'outputter/buffer/append': 1,
+            \       'outputter/buffer/into': 0
             \   },
-            \   "phpunit": {
-            \       "command": "./vendor/bin/phpunit",
-            \       "exec": '%c %o %s'
+            \   'phpunit.php': {
+            \       'command': './vendor/bin/phpunit',
+            \       'exec': '%c %o %s'
             \   },
-            \   "markdown": {
-            \       "command": "convert_md"
+            \   'markdown': {
+            \       'command': 'convert_md'
             \   }
             \}
 
+            "\       'outputter/buffer/split': ':botright 7sp',
 " taglist
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Show_One_File = 1
@@ -214,7 +214,7 @@ let Tlist_Exit_OnlyWindow = 1
 map <silent> <C-l> :TlistToggle<CR>
 
 " vim-ref
-let g:ref_phpmanual_path = '/home/msy/.vim/dict/phpmanual'
+let g:ref_phpmanual_path = $HOME."/.vim/dict/phpmanual"
 
 " solarized
 syntax enable
