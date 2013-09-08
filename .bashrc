@@ -5,7 +5,7 @@
 set -o vi
 
 # Path
-if [[ ${TERM} != screen -a ${TERM} != screen-256color ]]; then
+if [[ ${TERM} != screen && ${TERM} != screen-256color ]]; then
   export PATH=${HOME}/.bin:${PATH}:
 fi
 
