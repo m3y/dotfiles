@@ -156,6 +156,7 @@ NeoBundle 'git://github.com/airblade/vim-gitgutter.git'
 NeoBundle 'git://github.com/itchyny/lightline.vim.git'
 NeoBundle 'git://github.com/gregsexton/gitv.git'
 NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
+NeoBundle 'git://github.com/sjl/gundo.vim.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \   'build' : {
           \       'windows' : 'make -f make_mingw32.mak',
@@ -209,6 +210,9 @@ let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 map <silent> <C-l> :TlistToggle<CR>
+
+" gitgutter
+nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 
 " vim-ref
 let g:ref_phpmanual_path = $HOME."/.vim/dict/phpmanual"
