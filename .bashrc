@@ -28,7 +28,7 @@ alias sorc="source ~/.bashrc"
 alias vimrc="vi ~/.vimrc"
 alias cd="clear;pushd > /dev/null"
 alias d="dirs -v"
-alias gd='dirs -v; echo -n "select number: "; read newdir; pushed > /dev/null +"$newdir"'
+alias gd='dirs -v; echo -n "select number: "; read newdir; pushd > /dev/null +"$newdir"'
 
 #===================================
 # local settings.
@@ -36,6 +36,8 @@ alias gd='dirs -v; echo -n "select number: "; read newdir; pushed > /dev/null +"
 # Alias
 alias ls="clear;pwd;ls -GF"
 alias vertical="grep -o ."
+alias ....="cd ../../"
+alias ......="cd ../../../"
 
 # nodejs
 if [[ ${TERM} != screen && -f ~/.nodebrew/nodebrew ]]; then
