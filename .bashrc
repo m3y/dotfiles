@@ -26,9 +26,7 @@ alias rm="rm -ir"
 alias virc="vi ~/.bashrc"
 alias sorc="source ~/.bashrc"
 alias vimrc="vi ~/.vimrc"
-alias cd="clear;pushd > /dev/null"
-alias d="dirs -v"
-alias gd='dirs -v; echo -n "select number: "; read newdir; pushd > /dev/null +"$newdir"'
+alias cd="clear;cd"
 
 #===================================
 # local settings.

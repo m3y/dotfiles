@@ -7,9 +7,10 @@
 	branch = auto
 [core]
 	autocrlf = input
-	editor = vim
+    editor = vim -c \"set fenc=utf-8\"
 [alias]
 	st = status
 	stat = status
 	br = branch
 	ba = branch -a
+	co = checkout
