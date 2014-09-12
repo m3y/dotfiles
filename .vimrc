@@ -32,8 +32,6 @@ set showcmd
 set showmatch
 " 常にステータス行を表示する
 set laststatus=2
-" ステータスラインに文字コードと改行コード表示
-"set statusline=%F%m%r%h%w\ [%{&fenc!=''?&fenc:&enc}]\[%{&ff}]\%=\[%l/%L]
 " オートインデント
 set autoindent
 " C言語のコードを自動的にインデントする
@@ -51,12 +49,12 @@ set tabstop=4
 set shiftwidth=4
 " インデントをTabではなくスペースにする
 set expandtab
-" 全角スペースをハイライト
-augroup highlightldegraphicSpace
-  autocmd!
-  autocmd ColorScheme * highlight ldeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
-  autocmd VimEnter,WinEnter * match ldeographicSpace /　/
-augroup END
+"" 全角スペースをハイライト
+"augroup highlightldegraphicSpace
+"  autocmd!
+"  autocmd ColorScheme * highlight ldeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
+"  autocmd VimEnter,WinEnter,BufRead * match ldeographicSpace /　/
+"augroup END
 
 " === 機能まわり ===
 " vi互換モードにしない
@@ -86,11 +84,6 @@ nmap <ESC><ESC> :nohlsearch<CR>
 " マウスの設定
 set mouse=a
 set ttymouse=xterm2
-" 保存時に行末の空白を削除する
-augroup removeEndSpace
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//ge
-augroup END
 " .vimrc を開く
 nnoremap ,. :tabnew $MYVIMRC<CR>
 " .vimrc の即時反映
@@ -112,30 +105,36 @@ augroup phpsyntaxcheck
   autocmd BufWrite *.inc w !php -l
 augroup END
 
+" === Python 設定 ===
+augroup pythonsyntax
+  autocmd!
+  autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+augroup END
+
 " === Plugins ===
 " neobundle
-" $ git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+
+"{{{ vim起動時に自動インストールする場合
+"filetype off
+"if has('vim_starting')
+"  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+"    echo "install neobundle..."
+"    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+"  endif
+"  set runtimepath+=~/.vim/bundle/neobundle.vim
+"  call neobundle#rc(expand('~/.vim/bundle/'))
+"endif
+"filetype plugin indent on
+"
+"NeoBundleFetch 'git://github.com/Shougo/neobundle.vim.git'
+"}}}
+
 filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 filetype plugin indent on
-
-function! s:bundle_tap(bundle)
-  let s:tapped_bundle = neobundle#get(a:bundle)
-  return neobundle#is_installed(a:bundle)
-endfunction
-
-function! s:bundle_config(config)
-  if exists("s:tapped_bundle") && s:tapped_bundle != {}
-    call neobundle#config(s:tapped_bundle.name, a:config)
-  endif
-endfunction
-
-function! s:bundle_untap()
-  let s:tapped_bundle = {}
-endfunction
 
 " -- Plugin list --
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
@@ -157,6 +156,11 @@ NeoBundle 'git://github.com/itchyny/lightline.vim.git'
 NeoBundle 'git://github.com/gregsexton/gitv.git'
 NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
 NeoBundle 'git://github.com/sjl/gundo.vim.git'
+NeoBundle 'git://github.com/yuki777/encode.vim.git'
+NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
+NeoBundle 'git://github.com/tpope/vim-surround.git'
+NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+NeoBundle 'git://github.com/bronson/vim-trailing-whitespace.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \   'build' : {
           \       'windows' : 'make -f make_mingw32.mak',
@@ -165,6 +169,8 @@ NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \       'unix' : 'make -f make_unix.mak',
           \   },
           \}
+
+NeoBundle 'git://git.corp.yahoo.co.jp/vim-scripts/yicf.vim.git'
 
 " === Plugin Settings ===
 " neocomplcache
@@ -182,50 +188,54 @@ augroup END
 " quickrun
 augroup QuickRunPHPUnit
   autocmd!
-  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit.php
+  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit
 augroup END
 
 let g:quickrun_config = {
-            \   '_' : {
-            \       'runner': 'vimproc',
-            \       'runner/vimproc/updatetime': 60,
-            \       'outputter': 'multi:buffer:quickfix',
-            \       'outputter/buffer/split': ':botright 7sp',
-            \       'outputter/buffer/append': 1,
-            \       'outputter/buffer/into': 0
+            \   "_" : {
+            \       "runner": "vimproc",
+            \       "runner/vimproc/updatetime": 60,
+            \       "outputter": "multi:buffer:quickfix",
+            \       "outputter/buffer/split": ":botright 8sp",
+            \       "outputter/buffer/append": 1,
+            \       "outputter/buffer/into": 0
             \   },
-            \   'phpunit.php': {
-            \       'command': './vendor/bin/phpunit',
-            \       'exec': '%c %o %s'
-            \   },
-            \   'markdown': {
-            \       'command': 'convert_md'
+            \   "phpunit": {
+            \       "command": "./vendor/bin/phpunit",
+            \       "exec": '%c %o %s'
             \   }
             \}
 
-            "\       'outputter/buffer/split': ':botright 7sp',
 " taglist
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+"let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
+let Tlist_Enable_Fold_Column = 1
+let Tlist_Auto_Open = 0
+let Tlist_Auto_Update = 1
+let Tlist_WinWidth = 30
 map <silent> <C-l> :TlistToggle<CR>
 
 " gitgutter
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 
 " vim-ref
-let g:ref_phpmanual_path = $HOME."/.vim/dict/phpmanual"
-map <C-m> :Ref phpmanual <C-r><C-w><CR>
+let g:ref_phpmanual_path = expand("~")."/.vim/dict/phpmanual"
 
 " solarized
 syntax enable
 set background=dark
 "set background=light
-colorscheme solarized
-let g:solarized_termcolors=256
+if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
+  colorscheme solarized
+endif
+
+" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup = 1
 
 " NERD Tree
+let NERDTreeShowHidden = 1
 let file_name = expand("%")
 if has('vim_starting') && file_name == ""
   autocmd VimEnter * NERDTree ./
@@ -233,6 +243,8 @@ endif
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
 
 " lightline
+"let g:lightline = { 'colorscheme': 'solarized' }
+" {{{
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'mode_map': { 'c': 'NORMAL' },
@@ -289,3 +301,4 @@ endfunction
 function! MyMode()
   return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
+"}}}

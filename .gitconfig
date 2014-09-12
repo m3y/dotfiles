@@ -1,16 +1,22 @@
 [user]
 	name = Masaya Ozawa
-	email = ma3ya.ozw+github@gmail.com
+	email = masozawa@yahoo-corp.jp
 [color]
 	status = auto
 	diff = auto
 	branch = auto
 [core]
 	autocrlf = input
-    editor = vim -c \"set fenc=utf-8\"
+	editor = vim -c \"set fenc=utf-8\"
 [alias]
-	st = status
+	st = status -s
 	stat = status
 	br = branch
 	ba = branch -a
 	co = checkout
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[push]
+	default = current
+[merge]
+	conflictstyle = diff3

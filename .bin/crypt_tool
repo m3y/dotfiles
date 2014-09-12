@@ -1,0 +1,33 @@
+#!/bin/sh
+
+usage() {
+  cat <<EOU
+USAGE:
+  $ $0 [-ed] LISTFILE
+
+    -e: encrypt mode
+    -d: decrypt mode
+EOU
+  exit 1
+}
+
+OPTIONS=e
+while getopts ${OPTIONS} OPTION; do
+  case ${OPTION} in
+    e)
+      ENTRY_POINT=/api/v1/secure/cryptedyid ;;
+    \?)
+      ENTRY_POINT=/api/v1/secure/plainyid ;;
+  esac
+done
+
+[ $# -eq 0 ] && usage
+shift `expr ${OPTIND} - 1`
+
+URI="http://api01.order.ssk.ynwm.yahoo.co.jp${ENTRY_POINT}?type=text"
+
+[ -f $1 ] || usage
+cat $1 | while read ID; do
+  curl -sS "$URI&id=${ID}"
+  echo ''
+done
