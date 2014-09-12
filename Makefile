@@ -1,4 +1,4 @@
-DOT_FILES = .bin .bashrc .bash_prompt .bash_profile .bash-git-completion .vimrc .vim .tmux.conf .gitconfig .peco
+DOT_FILES = .bin .bashrc .bash_prompt .bash_profile .bash_git_completion .vimrc .vim .tmux.conf .gitconfig .peco
 CURRENTDIR = $(shell pwd)
 BACKUPDIR = $(HOME)/.dotfiles.back
 
