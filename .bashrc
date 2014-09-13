@@ -11,7 +11,7 @@ export TERM=xterm-256color
 export EDITOR=vim
 
 # Path
-[[ ${TERM} != screen-256color ]] && export PATH=${HOME}/.bin:${HOME}/local/bin:${PATH}:${HOME}/.bin/`uname`
+[[ ${TERM} != screen-256color ]] && export PATH=/usr/local/bin/:${HOME}/.bin:${HOME}/local/bin:${PATH}:${HOME}/.bin/`uname`
 
 # history設定
 export HISTSIZE=10000
