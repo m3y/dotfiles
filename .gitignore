@@ -1,5 +1,5 @@
-.vim/dict
 .ssh/known_hosts
 .ssh/private*
 .vim/bundle
-!.vim/bundle/neobundle.vim/
+.vim/dict
+!.vim/bundle/neobundle.vim
