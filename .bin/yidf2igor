@@ -1,0 +1,68 @@
+#!/bin/sh
+
+usage() {
+  cat <<EOU
+USAGE:
+  $ $0 [-s] TARGET_FILE
+
+      TARGET_FILE means yidf file or state file.
+
+      -s use state file
+
+EOU
+  exit 1
+}
+
+# Analyze parameters
+[ $# -eq 0 ] && usage
+OPTIONS=s:
+USE_YIDF_FLAG=0
+STATE_FILE=''
+while getopts ${OPTIONS} OPTION; do
+  case ${OPTION} in
+    s) STATE_FILE=${OPTARG} ;;
+   \?) usage ;;
+  esac
+done
+
+# Create state file.
+if [ "${STATE_FILE}" = "" ]; then
+    USE_YIDF_FLAG=1
+    shift `expr ${OPTIND} - 1`
+    STATE_FILE=`echo $1 | sed -e "s/\.yidf/\.state/g"`
+    statecc-yidf-flatten $1 -br test -platform rhel6
+fi
+
+# Output yinst pkg
+cat ${STATE_FILE} | while read LINE; do
+  if echo ${LINE}|grep -q yinst.package; then
+    echo ${LINE} | sed "s/(.*)//g" | awk '{print $2}' | \
+        awk -F/ '{
+            if ($1 == "yahoo") {
+                print "add yinst pkg "$2
+            } else {
+                print "add yinst pkg "$1"/"$2
+            }
+        }'
+  fi
+done
+
+# Output yinst setting
+PACKAGE_NAME=''
+cat ${STATE_FILE} | awk '/^+++/,/^---/{print}' | while read LINE; do
+
+  if echo ${LINE} | grep -q +++; then
+    PACKAGE_NAME=`echo ${LINE} | awk -F/ '{print $4}'`
+  fi
+
+  if echo ${LINE} | grep -q +; then
+    if echo ${LINE} | grep -v @ | grep -v +++ > /dev/null 2>&1 ; then
+      KEY=`echo ${LINE} | sed -e "s/^+//g" | awk '{print $1}'`
+      VALUE=`echo ${LINE} | cut -d ' ' -f2- | sed -e 's/^+[^ ]*//g'`
+      echo "add yinst setting "${PACKAGE_NAME}.${KEY}=${VALUE}
+    fi
+  fi
+done
+
+# Remove temp state file.
+[ ${USE_YIDF_FLAG} -eq 1 ] && rm ${STATE_FILE}

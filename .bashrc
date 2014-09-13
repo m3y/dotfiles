@@ -4,19 +4,33 @@
 # Vi mode
 set -o vi
 
+# Term
+export TERM=xterm-256color
+
+# Editor
+export EDITOR=vim
+
 # Path
-if [[ ${TERM} != screen && ${TERM} != screen-256color ]]; then
-  export PATH=${HOME}/.bin:${PATH}:
-fi
+[[ ${TERM} != screen-256color ]] && export PATH=/usr/local/bin/:${HOME}/.bin:${HOME}/local/bin:${PATH}:${HOME}/.bin/`uname`
 
 # history設定
 export HISTSIZE=10000
 export HISTIGNORE="ls:ll:history*:cd:cd ..*"
-export HISTCONTROL=ignoredeps
+export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT='%Y-%m-%d %T '
+
+# ls設定
+export LS_COLORS="di=34:ln=35:ex=36"
+
+# grep設定
+export GREP_OPTIONS='--color=auto'
+
+# less設定
+export LESS="-R"
 
 # Alias
 alias grep="grep --color=auto"
+[[ `uname` == 'Darwin' ]] || alias ls="ls --color"
 alias ll="clear;ls -lhA"
 alias vi="vim"
 alias c="clear"
@@ -26,27 +40,75 @@ alias rm="rm -ir"
 alias virc="vi ~/.bashrc"
 alias sorc="source ~/.bashrc"
 alias vimrc="vi ~/.vimrc"
-alias cd="clear;cd"
+alias cd="cd"
+alias diff="colordiff"
+
+# git補完
+source ~/.bash_git_completion
 
 #===================================
 # local settings.
 #===================================
 # Alias
-alias ls="clear;pwd;ls -GF"
 alias vertical="grep -o ."
-alias ....="cd ../../"
-alias ......="cd ../../../"
 
-# nodejs
-if [[ ${TERM} != screen && -f ~/.nodebrew/nodebrew ]]; then
-  export PATH=${HOME}/.nodebrew/current/bin:${PATH}
+if which gsed > /dev/null 2>&1; then
+    alias sed="gsed"
 fi
+
+function colorlist() {
+    for i in {0..255}; do
+        printf "\x1b[38;5;${i}mcolour${i}    ";
+        echo "\x1b[38;5;${i}mcolour${i}    ";
+    done
+}
+
+function solarized() {
+    echo -e "\x1b[38;5;255m base03: \t\x1b[38;5;234m colour234"
+    echo -e "\x1b[38;5;255m base02: \t\x1b[38;5;235m colour235"
+    echo -e "\x1b[38;5;255m base01: \t\x1b[38;5;240m colour240"
+    echo -e "\x1b[38;5;255m base00: \t\x1b[38;5;241m colour241"
+    echo -e "\x1b[38;5;255m base0:  \t\x1b[38;5;244m colour244"
+    echo -e "\x1b[38;5;255m base1:  \t\x1b[38;5;245m colour245"
+    echo -e "\x1b[38;5;255m base2:  \t\x1b[38;5;254m colour254"
+    echo -e "\x1b[38;5;255m base3:  \t\x1b[38;5;230m colour230"
+    echo -e "\x1b[38;5;255m yellow: \t\x1b[38;5;136m colour136"
+    echo -e "\x1b[38;5;255m orange: \t\x1b[38;5;166m colour166"
+    echo -e "\x1b[38;5;255m red:    \t\x1b[38;5;160m colour160"
+    echo -e "\x1b[38;5;255m magenta:\t\x1b[38;5;125m colour125"
+    echo -e "\x1b[38;5;255m violet: \t\x1b[38;5;61m colour61"
+    echo -e "\x1b[38;5;255m blue:   \t\x1b[38;5;33m colour33"
+    echo -e "\x1b[38;5;255m cyan:   \t\x1b[38;5;37m colour37"
+    echo -e "\x1b[38;5;255m green:  \t\x1b[38;5;64m colour64"
+}
 
 # loop
 function loop() {
-    INTERVAL=3
-    COMMAND="$*"
+    local INTERVAL=3
+    local COMMAND="$*"
     ( while :; do clear; echo ${COMMAND}; ${COMMAND}; sleep ${INTERVAL}; done )
 }
 
-PROMPT_COMMAND="[[ -f ~/.bash_ps ]] && source ~/.bash_ps"
+function move-repository () {
+    local l="cd "$(ghq list --full-path | peco --query "$READLINE_LINE")
+    READLINE_LINE="$l"
+    READLINE_POINT=${#l}
+}
+bind -x '"\C-g": move-repository'
+
+# settings for peco
+function replace_by_history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+
+    local l=$(HISTTIMEFORMAT= history | eval $tac | sed -e 's/^\s*[0-9]*\+\s\+//' | peco)
+    READLINE_LINE="$l"
+    READLINE_POINT=${#READLINE_LINE}
+}
+bind -x '"\C-r": replace_by_history'
+
+PROMPT_COMMAND="[[ -f ~/.bash_prompt ]] && source ~/.bash_prompt"
