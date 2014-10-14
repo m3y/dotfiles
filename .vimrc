@@ -158,7 +158,6 @@ NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
 NeoBundle 'git://github.com/sjl/gundo.vim.git'
 NeoBundle 'git://github.com/yuki777/encode.vim.git'
 NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
-NeoBundle 'git://github.com/tpope/vim-surround.git'
 NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 NeoBundle 'git://github.com/bronson/vim-trailing-whitespace.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git', {
