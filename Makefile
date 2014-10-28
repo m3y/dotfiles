@@ -3,7 +3,7 @@ CURRENTDIR = $(shell pwd)
 BACKUPDIR = $(HOME)/.dotfiles.back
 
 all: usage
-install: gitsubmodule backup clean bin bash tmux git vim peco
+install: gitsubmodule backup clean bin bash tmux git vim-ref peco
 
 usage:
 	@echo ""

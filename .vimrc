@@ -114,27 +114,19 @@ augroup END
 " === Plugins ===
 " neobundle
 
-"{{{ vim起動時に自動インストールする場合
-"filetype off
-"if has('vim_starting')
-"  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-"    echo "install neobundle..."
-"    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-"  endif
-"  set runtimepath+=~/.vim/bundle/neobundle.vim
-"  call neobundle#rc(expand('~/.vim/bundle/'))
-"endif
-"filetype plugin indent on
-"
-"NeoBundleFetch 'git://github.com/Shougo/neobundle.vim.git'
-"}}}
-
+" vim起動時に自動インストールする
 filetype off
 if has('vim_starting')
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
+  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 filetype plugin indent on
+
+NeoBundleFetch 'git://github.com/Shougo/neobundle.vim.git'
 
 " -- Plugin list --
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
