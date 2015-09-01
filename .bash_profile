@@ -5,7 +5,7 @@ export TERM=xterm-256color
 export EDITOR=vim
 
 # Path
-export PATH=${HOME}/.bin:${HOME}/local/bin:${HOME}/.bin/`uname`
+export PATH=${PATH}:${HOME}/.bin:${HOME}/local/bin:${HOME}/.bin/`uname`:/usr/local/bin
 
 # history 設定
 export HISTSIZE=10000
