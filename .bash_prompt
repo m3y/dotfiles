@@ -30,14 +30,16 @@ PROMPT_COLOR=${YELLOW}
 # prompt value
 # ------------
 # 表示する内容を変更する場合は修正
-SEPARATOR=" » "
+SEPARATOR=" : "
+#SEPARATOR=" » "
 # hostname
 HOST=`hostname | awk -F. '{print $1"."$2}'`${SEPARATOR}
 # mark in robot
-MARK=" ✧ "
-if [ `uname` == 'Darwin' ]; then
-  MARK="  "
-fi
+MARK="   "
+#MARK=" ✧ "
+#if [ `uname` == 'Darwin' ]; then
+#  MARK="  "
+#fi
 # git
 BRANCH=`git branch 2> /dev/null | grep '*' | awk '{print $2}'`
 BRANCH=${BRANCH}${SEPARATOR}
@@ -50,7 +52,6 @@ VIRTUALENV=${VIRTUALENV}${SEPARATOR}
 # ------------
 # 色を変えたい場合はここを修正
 HOST_COLOR=${GREEN}
-YROOT_COLOR=${GREEN}
 MARK_COLOR=${RED}
 BRANCH_COLOR=${ORANGE}
 VIRTUALENV_COLOR=${YELLOW}
@@ -60,7 +61,6 @@ CURRENT_COLOR=${VIOLET}
 # --------------------
 # 基本修正しない
 HOST_C=${HOST_COLOR}${HOST}${PROMPT_COLOR}
-YROOT_C=${YROOT_COLOR}${YROOT}${PROMPT_COLOR}
 MARK_C=${MARK_COLOR}${MARK}${PROMPT_COLOR}
 BRANCH_C=${BRANCH_COLOR}${BRANCH}${PROMPT_COLOR}
 VIRTUALENV_C=${VIRTUALENV_COLOR}${VIRTUALENV}${PROMPT_COLOR}
@@ -70,7 +70,7 @@ CURRENT_C=${CURRENT_COLOR}${CURRENT}${PROMPT_COLOR}
 # -----
 FACE="[ -_-]"
 BODY="|C"${MARK_C}"|-C"
-SERIF="< "
+SERIF=": "
 
 # serif
 # -----
@@ -89,4 +89,5 @@ SERIF="${SERIF}${CURRENT_C}"
 # -------
 # [ -_-] < zZZ
 # |C   |-C ls
-PS1="${PROMPT_COLOR} ${FACE} ${SERIF}\n ${BODY} ${DEFAULT}"
+#PS1="${PROMPT_COLOR} ${FACE} ${SERIF}\n ${BODY} ${DEFAULT}"
+PS1="${PROMPT_COLOR} ${SERIF}\n $ ${DEFAULT}"
