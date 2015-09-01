@@ -2,4 +2,5 @@
 .ssh/private*
 .vim/bundle
 .vim/dict
+.vim/colors
 !.vim/bundle/neobundle.vim
