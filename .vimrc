@@ -113,30 +113,20 @@ augroup END
 
 " === Plugins ===
 " neobundle
+if 0 | endif
 
-"{{{ vim起動時に自動インストールする
-"filetype off
-"if has('vim_starting')
-"  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-"    echo "install neobundle..."
-"    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-"  endif
-"  set runtimepath+=~/.vim/bundle/neobundle.vim
-"  call neobundle#rc(expand('~/.vim/bundle/'))
-"endif
-"filetype plugin indent on
-"
-"NeoBundleFetch 'git://github.com/Shougo/neobundle.vim.git'
-"}}}
-
-filetype off
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand("~/.vim/bundle"))
-endif
-filetype plugin indent on
+    if &compatible
+        set nocompatible               " Be iMproved
+    endif
 
-" -- Plugin list --
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
@@ -158,16 +148,18 @@ NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
 NeoBundle 'git://github.com/sjl/gundo.vim.git'
 NeoBundle 'git://github.com/yuki777/encode.vim.git'
 NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
+NeoBundle 'git://github.com/tpope/vim-surround.git'
 NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 NeoBundle 'git://github.com/bronson/vim-trailing-whitespace.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \   'build' : {
-          \       'windows' : 'make -f make_mingw32.mak',
-          \       'cygwin' : 'make -f make_cygwin.mak',
           \       'mac' : 'make -f make_mac.mak',
-          \       'unix' : 'make -f make_unix.mak',
+          \       'linux': 'make',
+          \       'unix' : 'gmake',
           \   },
           \}
+
+NeoBundle 'git://git.corp.yahoo.co.jp/vim-scripts/yicf.vim.git'
 
 " === Plugin Settings ===
 " neocomplcache
@@ -180,6 +172,7 @@ augroup neocomplcache_settings
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType php setlocal omnifunc=phpscriptcomplete#CompletePHP
   autocmd FileType c setlocal omnifunc=ccomplete#Complete
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 augroup END
 
 " quickrun
@@ -217,13 +210,9 @@ map <silent> <C-l> :TlistToggle<CR>
 " gitgutter
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 
-" vim-ref
-let g:ref_phpmanual_path = expand("~")."/.vim/dict/phpmanual"
-
 " solarized
 syntax enable
 set background=dark
-"set background=light
 if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
   colorscheme solarized
 endif
@@ -299,3 +288,11 @@ function! MyMode()
   return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
 "}}}
+
+call neobundle#end()
+
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
