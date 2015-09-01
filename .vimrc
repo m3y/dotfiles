@@ -159,8 +159,6 @@ NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \   },
           \}
 
-NeoBundle 'git://git.corp.yahoo.co.jp/vim-scripts/yicf.vim.git'
-
 " === Plugin Settings ===
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
