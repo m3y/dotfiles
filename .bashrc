@@ -4,33 +4,8 @@
 # Vi mode
 set -o vi
 
-# Term
-export TERM=xterm-256color
-
-# Editor
-export EDITOR=vim
-
-# Path
-[[ ${TERM} != screen-256color ]] && export PATH=/usr/local/bin/:${HOME}/.bin:${HOME}/local/bin:${PATH}:${HOME}/.bin/`uname`
-
-# history設定
-export HISTSIZE=10000
-export HISTIGNORE="ls:ll:history*:cd:cd ..*"
-export HISTCONTROL=ignoredups
-export HISTTIMEFORMAT='%Y-%m-%d %T '
-
-# ls設定
-export LS_COLORS="di=34:ln=35:ex=36"
-
-# grep設定
-export GREP_OPTIONS='--color=auto'
-
-# less設定
-export LESS="-R"
-
 # Alias
 alias grep="grep --color=auto"
-[[ `uname` == 'Darwin' ]] || alias ls="ls --color"
 alias ll="clear;ls -lhA"
 alias vi="vim"
 alias c="clear"
@@ -57,6 +32,11 @@ fi
 #===================================
 # Alias
 alias vertical="grep -o ."
+if [[ `uname` == 'Darwin' ]]; then
+    alias sed="gsed"
+else
+    alias ls="ls --color"
+fi
 
 if which gsed > /dev/null 2>&1; then
     alias sed="gsed"

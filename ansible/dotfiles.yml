@@ -1,0 +1,5 @@
+- hosts: target
+  gather_facts: no
+  sudo: no
+  tasks:
+    - include: tasks/reflection_dotfiles.yml
