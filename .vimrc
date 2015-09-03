@@ -127,31 +127,31 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'git://github.com/thinca/vim-ref.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/tpope/vim-markdown.git'
-NeoBundle 'git://github.com/tsaleh/vim-align.git'
-NeoBundle 'git://github.com/altercation/vim-colors-solarized.git'
-NeoBundle 'git://github.com/scrooloose/nerdtree.git'
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
-NeoBundle 'git://github.com/StanAngeloff/php.vim.git'
-NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
-NeoBundle 'git://github.com/airblade/vim-gitgutter.git'
-NeoBundle 'git://github.com/itchyny/lightline.vim.git'
-NeoBundle 'git://github.com/gregsexton/gitv.git'
-NeoBundle 'git://github.com/vim-scripts/taglist.vim.git'
-NeoBundle 'git://github.com/sjl/gundo.vim.git'
-NeoBundle 'git://github.com/yuki777/encode.vim.git'
-NeoBundle 'git://github.com/tomtom/tcomment_vim.git'
-NeoBundle 'git://github.com/tpope/vim-surround.git'
-NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-NeoBundle 'git://github.com/bronson/vim-trailing-whitespace.git'
-NeoBundle 'git://github.com/Shougo/vimproc.git', {
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tsaleh/vim-align'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'yuki777/encode.vim'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'Shougo/vimproc', {
           \   'build' : {
           \       'mac' : 'make -f make_mac.mak',
           \       'linux': 'make',
@@ -160,6 +160,9 @@ NeoBundle 'git://github.com/Shougo/vimproc.git', {
           \}
 
 " === Plugin Settings ===
+" neobundle
+let g:neobundle_default_git_protocol='git'
+
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 3
