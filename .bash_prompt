@@ -3,43 +3,34 @@
 
 # Solarized Colors
 # ----------------
-DEFAULT="\033[0m"
-BASE03="\033[38;5;234m"
-BASE02="\033[38;5;235m"
-BASE01="\033[38;5;240m"
-BASE00="\033[38;5;241m"
-BASE0="\033[38;5;244m"
-BASE1="\033[38;5;245m"
-BASE2="\033[38;5;254m"
-BASE3="\033[38;5;230m"
-YELLOW="\033[38;5;136m"
-ORANGE="\033[38;5;166m"
-RED="\033[38;5;160m"
-MAGENTA="\033[38;5;125m"
-VIOLET="\033[38;5;61m"
-BLUE="\033[38;5;33m"
-CYAN="\033[38;5;37m"
-GREEN="\033[38;5;64m"
+DEFAULT="\[\033[0m\]"
+BASE03="\[\033[38;5;234m\]"
+BASE02="\[\033[38;5;235m\]"
+BASE01="\[\033[38;5;240m\]"
+BASE00="\[\033[38;5;241m\]"
+BASE0="\[\033[38;5;244m\]"
+BASE1="\[\033[38;5;245m\]"
+BASE2="\[\033[38;5;254m\]"
+BASE3="\[\033[38;5;230m\]"
+YELLOW="\[\033[38;5;136m\]"
+ORANGE="\[\033[38;5;166m\]"
+RED="\[\033[38;5;160m\]"
+MAGENTA="\[\033[38;5;125m\]"
+VIOLET="\[\033[38;5;61m\]"
+BLUE="\[\033[38;5;33m\]"
+CYAN="\[\033[38;5;37m\]"
+GREEN="\[\033[38;5;64m\]"
 
 # Prompt
 # ------
 # 基本色
 PROMPT_COLOR=${YELLOW}
-#PROMPT_COLOR="\[${ESC}3`expr \`date +%s\` % 6 + 1`m\]"
 
 # prompt value
 # ------------
 # 表示する内容を変更する場合は修正
 SEPARATOR=" : "
-#SEPARATOR=" » "
-# hostname
 HOST=`hostname | awk -F. '{print $1"."$2}'`${SEPARATOR}
-# mark in robot
-MARK="   "
-#MARK=" ✧ "
-#if [ `uname` == 'Darwin' ]; then
-#  MARK="  "
-#fi
 # git
 BRANCH=`git branch 2> /dev/null | grep '*' | awk '{print $2}'`
 BRANCH=${BRANCH}${SEPARATOR}
@@ -52,7 +43,6 @@ VIRTUALENV=${VIRTUALENV}${SEPARATOR}
 # ------------
 # 色を変えたい場合はここを修正
 HOST_COLOR=${GREEN}
-MARK_COLOR=${RED}
 BRANCH_COLOR=${ORANGE}
 VIRTUALENV_COLOR=${YELLOW}
 CURRENT_COLOR=${VIOLET}
@@ -61,19 +51,13 @@ CURRENT_COLOR=${VIOLET}
 # --------------------
 # 基本修正しない
 HOST_C=${HOST_COLOR}${HOST}${PROMPT_COLOR}
-MARK_C=${MARK_COLOR}${MARK}${PROMPT_COLOR}
 BRANCH_C=${BRANCH_COLOR}${BRANCH}${PROMPT_COLOR}
 VIRTUALENV_C=${VIRTUALENV_COLOR}${VIRTUALENV}${PROMPT_COLOR}
 CURRENT_C=${CURRENT_COLOR}${CURRENT}${PROMPT_COLOR}
 
-# robot
-# -----
-FACE="[ -_-]"
-BODY="|C"${MARK_C}"|-C"
-SERIF=": "
-
 # serif
 # -----
+SERIF=": "
 SERIF="${SERIF}${HOST_C}"
 # virtualenv管理下
 if [ "${VIRTUALENV}" != "${SEPARATOR}" ]; then
@@ -89,5 +73,4 @@ SERIF="${SERIF}${CURRENT_C}"
 # -------
 # [ -_-] < zZZ
 # |C   |-C ls
-#PS1="${PROMPT_COLOR} ${FACE} ${SERIF}\n ${BODY} ${DEFAULT}"
 PS1="${PROMPT_COLOR} ${SERIF}\n $ ${DEFAULT}"
