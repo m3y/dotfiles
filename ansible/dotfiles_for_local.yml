@@ -74,6 +74,11 @@
         state: link
         force: yes
 
+    - name: nerdtree plugin の設定
+      copy:
+          src: "{{ rcdir }}/grep_menuitem.vim"
+          dest: ~/.vim/bundle/nerdtree/nerdtree_plugin/grep_menuitem.vim
+
     - name: linux bin 設定
       file:
         src: "{{ rcdir }}/.bin"

@@ -70,6 +70,11 @@
     - name: vim pluginのインストール
       command: ~/.vim/bundle/neobundle.vim/bin/neoinstall
 
+    - name: nerdtree plugin の設定
+      copy:
+          src: ~/.ghq/github.com/m3y/dotfiles/grep_menuitem.vim
+          dest: ~/.vim/bundle/nerdtree/nerdtree_plugin/grep_menuitem.vim
+
     - name: solarized 設定
       file:
         src: ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim
