@@ -21,10 +21,9 @@ alias diff="colordiff"
 # git補完
 source ~/.bash_git_completion
 
-# python
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=${HOME}/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
+# 言語などの追加設定を読み込み
+if [ -f ~/.etc/*.conf ]; then
+    source ~/.etc/*.conf
 fi
 
 #===================================
