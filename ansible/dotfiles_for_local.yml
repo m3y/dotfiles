@@ -86,9 +86,7 @@
         state: link
         force: yes
 
-    - name: etc 設定
+    - name: etc 用ディレクトリ作成
       file:
-        src: "{{ rcdir }}/.etc"
-        dest: ~/.etc
-        state: link
-        force: yes
+        path: ~/.etc
+        state: directory

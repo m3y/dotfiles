@@ -21,11 +21,6 @@ alias diff="colordiff"
 # git補完
 source ~/.bash_git_completion
 
-# 言語などの追加設定を読み込み
-if [ -f ~/.etc/*.conf ]; then
-    source ~/.etc/*.conf
-fi
-
 #===================================
 # local settings.
 #===================================
@@ -40,6 +35,13 @@ fi
 if which gsed > /dev/null 2>&1; then
     alias sed="gsed"
 fi
+
+# 言語などの追加設定の読込関数
+function loadConfig() {
+  if [ -f ~/.etc/*.conf ]; then
+      source ~/.etc/*.conf
+  fi
+}
 
 function colorlist() {
     for i in {0..255}; do
@@ -96,4 +98,4 @@ function replace_by_history() {
 }
 bind -x '"\C-r": replace_by_history'
 
-PROMPT_COMMAND="[[ -f ~/.bash_prompt ]] && source ~/.bash_prompt"
+PROMPT_COMMAND="loadConfig && [[ -f ~/.bash_prompt ]] && source ~/.bash_prompt"
