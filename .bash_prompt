@@ -36,7 +36,7 @@ BRANCH=`git branch 2> /dev/null | grep '*' | awk '{print $2}'`
 BRANCH=${BRANCH}${SEPARATOR}
 CURRENT="\w"
 # virtualenv
-VIRTUALENV=`echo ${VIRTUAL_ENV} | awk -F/ '{print $NF}'`
+VIRTUALENV=`echo ${VIRTUAL_ENV:=""} | awk -F/ '{print $NF}'`
 VIRTUALENV=${VIRTUALENV}${SEPARATOR}
 
 # prompt color
