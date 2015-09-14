@@ -85,3 +85,10 @@
         dest: ~/.bin
         state: link
         force: yes
+
+    - name: etc 設定
+      file:
+        src: "{{ rcdir }}/.etc"
+        dest: ~/.etc
+        state: link
+        force: yes
