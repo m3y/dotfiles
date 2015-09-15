@@ -19,8 +19,7 @@ alias cd="cd"
 alias diff="colordiff"
 
 # git補完
-#source ~/.bash_git_completion
-source ~/.ghq/github.com/m3y/dotfiles/git-completion.bash
+source ~/.bash_git_completion
 
 #===================================
 # local settings.
@@ -39,11 +38,9 @@ fi
 
 # 言語などの追加設定の読込関数
 function loadConfig() {
-  if ls ~/.etc/*.conf > /dev/null 2>&1; then
-      ls ~/.etc/*.conf | while read FILE; do
-          source ${FILE}
-      done
-  fi
+    ls ~/.etc/*.conf | while read FILE; do
+        source ${FILE}
+    done
 }
 
 function colorlist() {
