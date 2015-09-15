@@ -1,6 +1,5 @@
-[user]
-	name = m3y
-	email = ma3ya.ozw+github@gmail.com
+[include]
+	path = ~/.gitconfig.local
 [color]
 	status = auto
 	diff = auto

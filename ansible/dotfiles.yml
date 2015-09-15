@@ -23,6 +23,7 @@
         force: yes
       with_items:
         - .gitconfig
+        - .gitconfig.local
         - .gitignore
 
     - name: bash 設定の反映
