@@ -40,7 +40,9 @@ fi
 # 言語などの追加設定の読込関数
 function loadConfig() {
   if ls ~/.etc/*.conf > /dev/null 2>&1; then
-      source ~/.etc/*.conf
+      ls ~/.etc/*.conf | while read FILE; do
+          source ${FILE}
+      done
   fi
 }
 
