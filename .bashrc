@@ -38,7 +38,7 @@ fi
 
 # 言語などの追加設定の読込関数
 function loadConfig() {
-    FILES=$(ls ~/.etc/*.conf);
+    FILES=$(ls ~/.etc/*.conf 2> /dev/null);
     for FILE in ${FILES}; do
         source ${FILE};
     done
