@@ -151,6 +151,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'Shougo/vimproc', {
           \   'build' : {
           \       'mac' : 'make -f make_mac.mak',
