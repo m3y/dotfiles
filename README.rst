@@ -13,7 +13,7 @@ git から clone
 
 反映 - localhost
 
-    $ cd ansible 
+    $ cd ansible
     $ ansible-playbook -i inventory/localhost -vv dotfiles_for_local.yml
 
 反映 - dev server
