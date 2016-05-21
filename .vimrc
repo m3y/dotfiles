@@ -94,8 +94,8 @@ augroup template
   autocmd!
   " .php
   autocmd BufNewFile *.php 0r $HOME/.vim/template/php_template.txt
-  " .inc
-  autocmd BufNewFile *.inc 0r $HOME/.vim/template/php_template.txt
+  " .py
+  autocmd BufNewFile *.py 0r $HOME/.vim/template/python_template.txt
 augroup END
 
 " === PHP 設定 ===
