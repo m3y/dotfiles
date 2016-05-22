@@ -1,6 +1,6 @@
 - hosts: target
   gather_facts: no
-  sudo: no
+  become: no
   tasks:
     - name: dotfiles のチェックアウト
       git:
