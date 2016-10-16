@@ -1,300 +1,162 @@
-" === 文字コードまわり ===
-" 内部エンコーディング
 set encoding=utf-8
-" ファイルエンコーディング
-set fileencoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,cp932,utf-8
-" 改行コード
-set fileformats=unix
-" vimが認識する文字幅を調整する
-if &encoding == 'utf-8'
-  set ambiwidth=double
+scriptencoding utf-8
+
+" 文字コード
+" ----------
+set fileencoding=utf-8 " 保存時の文字コード
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別、左側優先
+set fileformats=unix,mac,dos " 改行コードの自動判別、左側優先
+set ambiwidth=double " □や○が崩れる問題を解決
+
+" タブ・インデント
+" ----------------
+set expandtab " タブ入力を複数の空白入力に置き換える
+set tabstop=4 " 画面上でタブ文字が占める幅
+set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set autoindent " 改行時に前の行のインデントを継続する
+set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
+set shiftwidth=4 " smartindent で増減する幅
+set listchars=tab:__ " タブを明示的に表示させる
+set list
+
+" 表示周り
+" --------
+set notitle " タイトル非表示
+set showcmd " 入力中のコマンド表示
+set laststatus=2 " 常にステータス行を表示する
+
+" 文字列検索
+" ----------
+set incsearch " インクリメンタルサーチ、１文字入力ごとに検索を行う
+set ignorecase " 検索パターンの大文字小文字を区別しない
+set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set hlsearch " 検索結果をハイライト
+set wrapscan " 検索時にファイルの最後まで行ったら最初に戻る (-> nowrapscan:戻らない)
+
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+" カーソル
+" --------
+set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
+set number " 行番号を表示
+set cursorline " カーソルラインをハイライト
+
+" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+nnoremap j gj
+nnoremap k gk
+nnoremap <down> gj
+nnoremap <up> gk
+
+" バックスペースの有効化
+set backspace=indent,eol,start
+
+" カッコ・タグジャンプ
+" --------------------
+set showmatch " カッコの対応関係を一瞬表示する
+source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
+
+" コマンド補完
+" ------------
+set wildmenu " コマンドモードの補完
+set history=5000 " 保存するコマンド履歴の数
+
+" マウスの有効化
+" --------------
+if has('mouse')
+    set mouse=a
+    if has('mouse_sgr')
+        set ttymouse=sgr
+    elseif v:version > 703 || v:version is 703 && has('patcht632')
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    endif
 endif
 
-" === 検索まわり ===
-" 検索時に大文字・小文字を無視(ignorecase: 無視しない)
-set ignorecase
-" 大文字・小文字の両方が含まれている場合は、区別する
-set smartcase
-" インクリメンタルサーチ
-set incsearch
-" マッチした箇所をハイライト
-set hlsearch
-" 検索時にファイルの最後まで言ったら最初に戻る(nowrapscan:戻らない)
-set wrapscan
+" ペースト設定
+" ------------
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
 
-" === 表示まわり ===
-" タイトルを表示しない(Thanks for flying Vim 対策)
-set notitle
-" 入力中のコマンドを表示
-set showcmd
-" 括弧入力時に対応する括弧を表示(noshowmatch:表示しない)
-set showmatch
-" 常にステータス行を表示する
-set laststatus=2
-" オートインデント
-set autoindent
-" C言語のコードを自動的にインデントする
-set cindent
-" カーソル行を表示
-set ruler
-" 行番号を表示
-set number
-" Tabを明示的に表示させる
-set listchars=tab:__
-set list
-" Tab文字を画面上の見た目で何文字に展開するか
-set tabstop=4
-" インデント時に挿入されるTabの幅
-set shiftwidth=4
-" インデントをTabではなくスペースにする
-set expandtab
-"" 全角スペースをハイライト
-"augroup highlightldegraphicSpace
-"  autocmd!
-"  autocmd ColorScheme * highlight ldeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
-"  autocmd VimEnter,WinEnter,BufRead * match ldeographicSpace /　/
-"augroup END
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
 
-" === 機能まわり ===
-" vi互換モードにしない
-set nocompatible
-" バックアップファイルを作らない
-set nobackup
-" スワップファイル作らない
-set noswapfile
-" コマンドライン補完するときに強化されたものを使う
-set wildmenu
-"<BS>キーがつかえる範囲
-set backspace=indent,eol,start
-" バックスペースキーを有効にする
-set t_kd=<BS>
-" デリートキーを有効にする
-set t_kD=<Del>
-" Ctrl-A の8進数計算を抑制
-set nrformats=octal
-" 折りたたみオプション
-set foldmethod=marker
-" 埋め込まれるマーカーを囲むコメントの形式を変更
-set commentstring=//%s
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
+" その他
+" ------
+set nocompatible " vi互換モードにしない
+set nobackup " バックアップファイルを作らない
+set noswapfile " スワップファイルを作らない
+set nrformats=octal " Ctfl-A の8進数計算を抑制
+set foldmethod=marker " 折りたたみオプション
+set commentstring=//%s " 埋め込まれるマーカーを囲むコメントの形式を変更
+
 " 折りたたみコマンドのショートカット
 nmap c :%foldclose<CR>
-" 検索結果のハイライトの停止
-nmap <ESC><ESC> :nohlsearch<CR>
-" マウスの設定
-set mouse=a
-set ttymouse=xterm2
-" .vimrc を開く
+
+" vimrc を開く
 nnoremap ,. :tabnew $MYVIMRC<CR>
-" .vimrc の即時反映
+" vimrc の即時反映
 nnoremap ,s. :<C-u>source $MYVIMRC<CR>
 
-" === テンプレート ===
+" テンプレート
+" -----------
 augroup template
-  autocmd!
-  " .php
-  autocmd BufNewFile *.php 0r $HOME/.vim/template/php_template.txt
-  " .py
-  autocmd BufNewFile *.py 0r $HOME/.vim/template/python_template.txt
+    autocmd!
+    " .php
+    autocmd BufNewFile *.php 0r $HOME/.vim/template/php_template.txt
+    " .py
+    autocmd BufNewFile *.py 0r $HOME/.vim/template/python_template.txt
 augroup END
 
-" === PHP 設定 ===
-augroup phpsyntaxcheck
-  autocmd!
-  autocmd BufWrite *.php w !php -l
-  autocmd BufWrite *.inc w !php -l
+" Python 設定
+" -----------
+augroup pythonsetting
+    autocmd!
+    autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 augroup END
 
-" === Python 設定 ===
-augroup pythonsyntax
-  autocmd!
-  autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-augroup END
+" Plugins
+" =======
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.vim/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" === Plugins ===
-" neobundle
-if 0 | endif
 
-if has('vim_starting')
-    if &compatible
-        set nocompatible               " Be iMproved
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
     endif
-
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" 設定開始
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tsaleh/vim-align'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'StanAngeloff/php.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'yuki777/encode.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'Shougo/vimproc', {
-          \   'build' : {
-          \       'mac' : 'make -f make_mac.mak',
-          \       'linux': 'make',
-          \       'unix' : 'gmake',
-          \   },
-          \}
+    " プラグインリストを収めた TOML ファイル
+    let g:rc_dir = expand('~/.vim/rc')
+    let s:toml = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-" === Plugin Settings ===
-" neobundle
-let g:neobundle_default_git_protocol='git'
+    " TOML を読み込み、キャッシュしておく
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_min_syntax_length = 3
-augroup neocomplcache_settings
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown,xml setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType php setlocal omnifunc=phpscriptcomplete#CompletePHP
-  autocmd FileType c setlocal omnifunc=ccomplete#Complete
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-augroup END
-
-" quickrun
-augroup QuickRunPHPUnit
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *Test.php set filetype=phpunit
-augroup END
-
-let g:quickrun_config = {
-            \   "_" : {
-            \       "runner": "vimproc",
-            \       "runner/vimproc/updatetime": 60,
-            \       "outputter": "multi:buffer:quickfix",
-            \       "outputter/buffer/split": ":botright 8sp",
-            \       "outputter/buffer/append": 1,
-            \       "outputter/buffer/into": 0
-            \   },
-            \   "phpunit": {
-            \       "command": "./vendor/bin/phpunit",
-            \       "exec": '%c %o %s'
-            \   }
-            \}
-
-" taglist
-"let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Show_One_File = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Enable_Fold_Column = 1
-let Tlist_Auto_Open = 0
-let Tlist_Auto_Update = 1
-let Tlist_WinWidth = 30
-map <silent> <C-l> :TlistToggle<CR>
-
-" gitgutter
-nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
-
-" solarized
-syntax enable
-set background=dark
-if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
-  colorscheme solarized
+    " 設定終了
+    call dein#end()
+    call dein#save_state()
 endif
 
-" vim-indent-guides
-"let g:indent_guides_enable_on_vim_startup = 1
-
-" NERD Tree
-let NERDTreeShowHidden = 1
-let file_name = expand("%")
-if has('vim_starting') && file_name == ""
-  autocmd VimEnter * NERDTree ./
+if dein#check_install()
+    call dein#install()
 endif
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-
-" lightline
-"let g:lightline = { 'colorscheme': 'solarized' }
-" {{{
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-       \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-       \  &ft == 'unite' ? unite#get_status_string() :
-       \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-       \ '' != expand('%t') ? expand('%t') : '[No Name]') .
-       \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? '⭠ '.fugitive#head() : ''
-endfunction
-
-function! MyFileformat()
-  return winwidth('.') > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-  return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth('.') > 60 ? lightline#mode() : ''
-endfunction
-"}}}
-
-call neobundle#end()
-
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck

@@ -1,6 +1,4 @@
 .ssh/known_hosts
 .ssh/private*
-.vim/bundle
+.vim/dein
 .vim/dict
-.vim/colors
-!.vim/bundle/neobundle.vim

@@ -62,27 +62,6 @@
         - .vimrc
         - .vim
 
-    - name: neobundle 設定
-      git:
-        repo=https://github.com/Shougo/neobundle.vim
-        dest=~/.vim/bundle/neobundle.vim
-        accept_hostkey=yes
-
-    - name: vim pluginのインストール
-      command: ~/.vim/bundle/neobundle.vim/bin/neoinstall
-
-    - name: nerdtree plugin の設定
-      copy:
-          src: ~/.ghq/github.com/m3y/dotfiles/grep_menuitem.vim
-          dest: ~/.vim/bundle/nerdtree/nerdtree_plugin/grep_menuitem.vim
-
-    - name: solarized 設定
-      file:
-        src: ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim
-        dest: ~/.vim/colors/solarized.vim
-        state: link
-        force: yes
-
     - name: linux bin 設定
       file:
         src: ~/.ghq/github.com/m3y/dotfiles/.bin
