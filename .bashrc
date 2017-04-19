@@ -5,17 +5,17 @@
 set -o vi
 
 # Alias
-alias grep="grep --color=auto"
-alias ll="clear;ls -lhA"
+alias ls="exa"
+alias ll="clear;ls -lha"
 alias vi="vim"
 alias c="clear"
+alias d="docker"
 alias mv="mv -i"
 alias cp="cp -ir"
 alias rm="rm -ir"
 alias virc="vi ~/.bashrc"
 alias sorc="source ~/.bashrc"
 alias vimrc="vi ~/.vimrc"
-alias cd="cd"
 alias diff="colordiff"
 
 # git補完
@@ -28,6 +28,8 @@ source ~/.bash_git_completion
 alias vertical="grep -o ."
 if [[ `uname` == 'Darwin' ]]; then
     alias sed="gsed"
+    alias cat="lolcat"
+    alias mcat="memo list --fullpath | peco | xargs lolcat"
 else
     alias ls="ls --color"
 fi
@@ -77,12 +79,12 @@ function loop() {
     ( while :; do clear; echo ${COMMAND}; ${COMMAND}; sleep ${INTERVAL}; done )
 }
 
-function move-repository () {
+function move_repository () {
     local l="cd "$(ghq list --full-path | peco --query "$READLINE_LINE")
     READLINE_LINE="$l"
     READLINE_POINT=${#l}
 }
-bind -x '"\C-g": move-repository'
+bind -x '"\C-g": move_repository'
 
 # settings for peco
 function replace_by_history() {
@@ -99,4 +101,4 @@ function replace_by_history() {
 }
 bind -x '"\C-r": replace_by_history'
 
-PROMPT_COMMAND="loadConfig && [[ -f ~/.bash_prompt ]] && source ~/.bash_prompt"
+PROMPT_COMMAND="[[ -f ~/.bash_prompt ]] && source ~/.bash_prompt; ${PROMPT_COMMAND}"

@@ -200,3 +200,10 @@ hook_add = '''
     let g:syntastic_check_on_open = 1 " ファイルを開いた際に構文エラーチェックを実行
     let g:syntastic_check_on_wq = 1 " wq で終了する際に構文エラーチェックを実行
 '''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+    let g:rustfmt_autosave = 1
+    let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
+'''
