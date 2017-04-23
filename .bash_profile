@@ -27,7 +27,7 @@ export GOPATH=${HOME}/.go
 export GOROOT=$( go env GOROOT )
 
 # Path
-export PATH=${PATH}:${HOME}/.bin:${HOME}/local/bin:${HOME}/.bin/`uname`:/usr/local/bin:${GOPATH}/bin:${HOME}/.cargo/bin
+export PATH="${PATH}:${HOME}/.bin:${HOME}/local/bin:${HOME}/.bin/`uname`:/usr/local/bin:${GOPATH}/bin:${HOME}/.cargo/bin"
 
 # .bashrc 読み込み
 if [[ -f ~/.bashrc ]]; then
