@@ -7,3 +7,5 @@
 .vim/syntax
 .vim/template
 .vimrc
+.zprofile
+.zshrc
