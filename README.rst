@@ -11,12 +11,6 @@ git から clone
 
     $ git clone git@github.com:m3y/dotfiles.git
 
-反映 - localhost
+反映
 
-    $ cd ansible
-    $ ansible-playbook -i inventory/localhost -vv dotfiles_for_local.yml
-
-反映 - dev server
-
-    $ cd ansible
-    $ ansible-playbook -i inventory/dev_hosts -vv dotfiles.yml
+    $ install.sh

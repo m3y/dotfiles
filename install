@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -e
+
+BACKUPSUFFIX=`date +%Y%m%d%H%M%S`
+BACKUPDIR="${HOME}/.dotfiles.bak"
+CURRENT=`pwd`
+LISTFILE='install_list'
+
+mkbakdir() {
+  [ -d ${BACKUPDIR} ] || mkdir -p ${BACKUPDIR}
+}
+
+backup() {
+  local TARGET=$1
+  mkbakdir
+  local DIRNAME=`dirname ${BACKUPDIR}/$1.${BACKUPSUFFIX}`
+  if [ ${BACKUPDIR} != ${DIRNAME} ]; then
+    mkdir -p ${DIRNAME}
+  fi
+  mv ${HOME}/$1 ${BACKUPDIR}/$1.${BACKUPSUFFIX}
+  echo ${TARGET}" is backup"
+}
+
+exists() {
+  local TARGET=$1
+  local TYPE=`file -b ${TARGET}`
+  if [ "${TYPE}" == "directory" ]; then
+    [ -d ${HOME}/${TARGET} ]
+  else
+    [ -f ${HOME}/${TARGET} ]
+  fi
+}
+
+# main
+while read FILE; do
+  echo "===== ${FILE} ====="
+  exists ${FILE} && backup ${FILE}
+  cp -r ${CURRENT}/${FILE} ${HOME}/${FILE}
+  echo ${FILE}" ok"
+done < ${LISTFILE}

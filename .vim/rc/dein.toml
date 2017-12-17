@@ -115,8 +115,8 @@ hook_add = '''
           \   'fileencoding': 'MyFileencoding',
           \   'mode': 'MyMode',
           \ },
-          \ 'separator': { 'left': '⮀', 'right': '⮂' },
-          \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+          \ 'separator': { 'left': '', 'right': '' },
+          \ 'subseparator': { 'left': '|', 'right': '|' }
           \ }
 
     function! MyModified()
@@ -124,7 +124,7 @@ hook_add = '''
     endfunction
 
     function! MyReadonly()
-        return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+        return &ft !~? 'help\|vimfiler\|gundo' && &ro ? 'RO' : ''
     endfunction
 
     function! MyFilename()
@@ -137,7 +137,7 @@ hook_add = '''
     endfunction
 
     function! MyFugitive()
-        return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? '⭠ '.fugitive#head() : ''
+        return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? 'BR: '.fugitive#head() : ''
     endfunction
 
     function! MyFileformat()
