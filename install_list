@@ -1,0 +1,11 @@
+.tmux.conf
+.gitconfig
+.gitconfig.local
+.gitignore
+.bin
+.vim/rc
+.vim/syntax
+.vim/template
+.vimrc
+.zprofile
+.zshrc
