@@ -1,24 +1,26 @@
 #!/bin/sh
 
 set -e
+set -x
 
-BACKUPSUFFIX=`date +%Y%m%d%H%M%S`
-BACKUPDIR="${HOME}/.dotfiles.bak"
+BASEBACKUPDIR="${HOME}/.dotfiles.bak"
+BACKUPDIR=${BASEBACKUPDIR}/`date +%Y%m%d%H%M%S`
 CURRENT=`pwd`
 LISTFILE='install_list'
 
 mkbakdir() {
+  [ -d ${BASEBACKUPDIR} ] || mkdir ${BASEBACKUPDIR}
   [ -d ${BACKUPDIR} ] || mkdir -p ${BACKUPDIR}
 }
 
 backup() {
   local TARGET=$1
   mkbakdir
-  local DIRNAME=`dirname ${BACKUPDIR}/$1.${BACKUPSUFFIX}`
+  local DIRNAME=`dirname ${BACKUPDIR}/$1`
   if [ ${BACKUPDIR} != ${DIRNAME} ]; then
     mkdir -p ${DIRNAME}
   fi
-  mv ${HOME}/$1 ${BACKUPDIR}/$1.${BACKUPSUFFIX}
+  mv ${HOME}/$1 ${DIRNAME}
   echo ${TARGET}" is backup"
 }
 
