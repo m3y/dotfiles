@@ -15,6 +15,7 @@ alias vimrc="vi ~/.vimrc"
 alias diff="colordiff"
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias fzf="fzf --reverse --select-1 --exit-0"
 
 setopt AUTO_CD
 setopt AUTO_PUSHD
@@ -73,6 +74,7 @@ function ghq_search() {
 }
 zle -N ghq_search
 bindkey '^G' ghq_search
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
