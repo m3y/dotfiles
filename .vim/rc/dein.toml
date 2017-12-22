@@ -103,7 +103,10 @@ hook_add = '''
           \ 'colorscheme': 'solarized',
           \ 'mode_map': { 'c': 'NORMAL' },
           \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+          \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
+          \ },
+          \ 'component': {
+          \   'lineinfo': '%3l:%-2v',
           \ },
           \ 'component_function': {
           \   'modified': 'MyModified',
@@ -115,7 +118,7 @@ hook_add = '''
           \   'fileencoding': 'MyFileencoding',
           \   'mode': 'MyMode',
           \ },
-          \ 'separator': { 'left': '', 'right': '' },
+          \ 'separator': { 'left': '', 'right': '' },
           \ 'subseparator': { 'left': '|', 'right': '|' }
           \ }
 
@@ -124,7 +127,7 @@ hook_add = '''
     endfunction
 
     function! MyReadonly()
-        return &ft !~? 'help\|vimfiler\|gundo' && &ro ? 'RO' : ''
+        return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '' : ''
     endfunction
 
     function! MyFilename()
@@ -137,7 +140,7 @@ hook_add = '''
     endfunction
 
     function! MyFugitive()
-        return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? 'BR: '.fugitive#head() : ''
+        return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? ''.fugitive#head() : ''
     endfunction
 
     function! MyFileformat()
