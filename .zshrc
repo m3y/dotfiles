@@ -62,10 +62,13 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
-# Make sure to use double quotes to prevent shell expansion
+# zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
+# zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
+# zsh-completions
 zplug "zsh-users/zsh-completions"
+# enhancd
 zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_FILTER=fzf
 export ENHANCD_HOOK_AFTER_CD=ls
@@ -74,7 +77,16 @@ function ghq_search() {
 }
 zle -N ghq_search
 bindkey '^G' ghq_search
+# powerlevel9k
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" $ "
+#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# zsh-colors
+zplug "Tarrasch/zsh-colors"
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
