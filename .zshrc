@@ -42,7 +42,7 @@ zle -N history-beginning-search-backward-end \
 bindkey "^o" history-beginning-search-backward-end
 
 function select_history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | awk '!a[$0]++' | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select_history
