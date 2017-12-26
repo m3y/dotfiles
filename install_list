@@ -1,6 +1,5 @@
 .tmux.conf
 .gitconfig
-.gitconfig.local
 .gitignore
 .bin
 .vim/rc
