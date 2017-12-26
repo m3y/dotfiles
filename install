@@ -20,7 +20,6 @@ backup() {
     mkdir -p ${DIRNAME}
   fi
   mv ${HOME}/$1 ${DIRNAME}
-  echo ${TARGET}" is backup"
 }
 
 exists() {
@@ -36,7 +35,6 @@ exists() {
 # main
 while read FILE; do
   echo "===== ${FILE} ====="
-  exists ${FILE} && backup ${FILE}
-  cp -r ${CURRENT}/${FILE} ${HOME}/${FILE}
-  echo ${FILE}" ok"
+  exists ${FILE} && backup ${FILE} && echo "${FILE} is backup"
+  cp -r ${CURRENT}/${FILE} ${HOME}/${FILE} && echo ${FILE}" ok"
 done < ${LISTFILE}
