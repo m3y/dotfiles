@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+CURRENT=`pwd`
+LISTFILE='install_list'
+
+exists() {
+  local TARGET=$1
+  local TYPE=`file -b ${TARGET}`
+  if [ "${TYPE}" == "directory" ]; then
+    [ -d ${HOME}/${TARGET} ]
+  else
+    [ -f ${HOME}/${TARGET} ]
+  fi
+}
+
+# main
+while read FILE; do
+  echo "===== ${FILE} ====="
+  if exists ${FILE}; then
+    diff -r ${CURRENT}/${FILE} ${HOME}/${FILE}
+  fi
+done < ${LISTFILE}
