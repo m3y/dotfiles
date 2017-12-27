@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 CURRENT=`pwd`
 LISTFILE='install_list'
 
