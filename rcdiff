@@ -16,6 +16,7 @@ exists() {
 # main
 while read FILE; do
   if exists ${FILE}; then
+    echo "==== ${FILE} ===="
     diff -r ${CURRENT}/${FILE} ${HOME}/${FILE}
   fi
 done < ${LISTFILE}
