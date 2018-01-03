@@ -16,6 +16,7 @@ alias diff="colordiff"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias fzf="fzf --reverse --select-1 --exit-0"
+alias pc="pass -c"
 
 setopt AUTO_CD
 setopt AUTO_PUSHD
