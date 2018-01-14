@@ -49,6 +49,11 @@ function select_history() {
 zle -N select_history
 bindkey '^r' select_history
 
+# for kubernetes
+if [ -x `which kubectl > /dev/null` ]; then
+    source <(kubectl completion zsh)
+fi
+
 # prompt
 PROMPT="[%n@%m] %# "
 RPROMPT="[%~]"
