@@ -14,9 +14,14 @@ exists() {
 }
 
 # main
+echo "##### rcdiff start. #####"
 while read FILE; do
   if exists ${FILE}; then
-    echo "==== ${FILE} ===="
-    diff -r ${CURRENT}/${FILE} ${HOME}/${FILE}
+    diff -r ${CURRENT}/${FILE} ${HOME}/${FILE} > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "==== ${FILE} ===="
+        diff -r ${CURRENT}/${FILE} ${HOME}/${FILE}
+    fi
   fi
 done < ${LISTFILE}
+echo "##### rcdiff end. #####"
