@@ -9,14 +9,21 @@
 --------
 git から clone
 
-    $ git clone git@github.com:m3y/dotfiles.git
+```
+$ git clone git@github.com:m3y/dotfiles.git
+```
 
 反映
 
-    $ ./install
+```
+$ ./install
+```
 
 差分の確認
 ----------
+
 差分確認
 
-    $ ./rcdiff
+```
+$ ./rcdiff
+```
