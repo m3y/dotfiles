@@ -123,6 +123,15 @@ augroup pythonsetting
     autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 augroup END
 
+" Go 設定
+" -------
+augroup gosetting
+    autocmd!
+    autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+    autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+    autocmd FileType go :match goErr /\<err\>/
+augroup END
+
 " Plugins
 " =======
 " プラグインが実際にインストールされるディレクトリ
