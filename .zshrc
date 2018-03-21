@@ -17,6 +17,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias fzf="fzf --reverse --select-1 --exit-0"
 alias pc="pass -c"
+alias workon="source ~/.venv/work/bin/activate"
 
 setopt AUTO_CD
 setopt AUTO_PUSHD
