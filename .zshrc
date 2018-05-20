@@ -32,6 +32,8 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+## Pipenv
+eval "$(pipenv --completion)"
 
 # history
 HISTFILE=~/.zsh_history
@@ -86,7 +88,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" $ "
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" >_ $ "
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user status dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_golang virtualenv kubecontext)
 POWERLEVEL9K_PYTHON_ICON=$'\uE606'
