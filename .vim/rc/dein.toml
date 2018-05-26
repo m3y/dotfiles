@@ -17,9 +17,6 @@ hook_post_update = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/vimshell'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
     " quickrun
