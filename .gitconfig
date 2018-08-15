@@ -22,5 +22,5 @@
 	tool = vimdiff
 	conflictstyle = diff3
 [ghq]
-	root = ~/.ghq
+	root = ~/.ghq/src
 	root = ~/.go/src

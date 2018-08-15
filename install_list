@@ -1,10 +1,9 @@
 .tmux.conf
 .gitconfig
-.bin
-.vim/rc
-.vim/syntax
-.vim/template
-.vimrc
+.gitconfig.local
 .zprofile
 .zshrc
-.ptpython/config.py
+.Xmodmap
+.config/autostart/xmodmap.desktop
+.config/nvim/local_bundles.vim
+.config/nvim/local_init.vim

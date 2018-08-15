@@ -1,8 +1,4 @@
 #!/bin/sh
 
-brew update
-brew upgrade
-brew cask cleanup
-for c in `brew cask list`; do
-    ! brew cask info $c | grep -qF "Not installed" || brew cask install $c;
-done
+sudo apt update && sudo apt upgrade
+sudo apt autoremove

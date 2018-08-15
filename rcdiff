@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 CURRENT=`pwd`
 LISTFILE='install_list'
