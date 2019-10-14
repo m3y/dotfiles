@@ -15,6 +15,7 @@ alias vimrc="vi ~/.vimrc"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias pc="p -c"
+alias pbcopy="xsel --clipboard --input"
 
 setopt AUTO_CD
 setopt AUTO_PUSHD
@@ -67,7 +68,7 @@ zplug "zsh-users/zsh-completions"
 # enhancd
 zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_FILTER=peco
-export ENHANCD_HOOK_AFTER_CD="echo ls; ls"
+export ENHANCD_HOOK_AFTER_CD="echo \=\=\= ls \=\=\=;ls"
 function ghq_search() {
   __enhancd::cd -G
 }
@@ -81,7 +82,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 ##POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{101} >_ $ %F{014}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir kubecontext vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status)
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
@@ -103,6 +104,8 @@ POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='blue'
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='grey'
 POWERLEVEL9K_DIR_ETC_FOREGROUND='blue'
 POWERLEVEL9K_DIR_ETC_BACKGROUND='grey'
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='yellow'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='grey'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='grey'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='green'
@@ -131,3 +134,5 @@ zplug load
 if [[ "${TMUX}" = "" ]]; then
   tmux
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
