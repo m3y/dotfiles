@@ -1,29 +1,38 @@
-設定ファイル
-============
+dotfiles
+========
 
-概要
-----
-環境を整えるための設定ファイル達
-
-反映方法
+Overview
 --------
-git から clone
+My dotfiles
 
+How to install
+--------------
+
+1. clone
 ```
 $ git clone git@github.com:m3y/dotfiles.git
 ```
 
-反映
-
+2. install
 ```
+$ cat target_list # Show installation target
+.bin
+.tmux.conf
+
+etc, etc
+
 $ ./install
 ```
 
-差分の確認
-----------
-
-差分確認
+Check for differences
+---------------------
 
 ```
+$ cat target_list # Show difference check target
+.bin
+.tmux.conf
+
+etc, etc
+
 $ ./rcdiff
 ```

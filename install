@@ -5,7 +5,7 @@ set -e
 BASEBACKUPDIR="${HOME}/.dotfiles.bak"
 BACKUPDIR=${BASEBACKUPDIR}/`date +%Y%m%d%H%M%S`
 CURRENT=`pwd`
-LISTFILE='install_list'
+LISTFILE='target_list'
 
 mkbakdir() {
   [ -d ${BASEBACKUPDIR} ] || mkdir ${BASEBACKUPDIR}
