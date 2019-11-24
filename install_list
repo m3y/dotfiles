@@ -1,9 +1,4 @@
-.tmux.conf
+.bin
 .gitconfig
 .gitconfig.local
-.zprofile
-.zshrc
-.Xmodmap
-.config/autostart/xmodmap.desktop
-.config/nvim/local_bundles.vim
-.config/nvim/local_init.vim
+.tmux.conf
