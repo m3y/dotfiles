@@ -1,7 +1,10 @@
 export EDITOR=nvim
-export GOPATH="${HOME}/.go"
-export GO111MODULE=on
-export PATH="${GOPATH}/bin:${HOME}/.bin:${PATH}"
-export PASSWORD_STORE_DIR=/home/m3y/Documents/Dropbox/data
+#export PATH=${PATH}
 
-xmodmap ${HOME}/.Xmodmap
+# for Japanese input
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
+
+# for passstore
+export PASSWORD_STORE_DIR=/home/m3y/Documents/Dropbox/data

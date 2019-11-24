@@ -1,7 +1,0 @@
-Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-markdown'
-Plug 'tsaleh/vim-align'
-Plug 'cespare/vim-toml'
-Plug 'vim-scripts/sudo.vim'
-Plug 'gregsexton/gitv'
-Plug 'vim-scripts/taglist.vim'

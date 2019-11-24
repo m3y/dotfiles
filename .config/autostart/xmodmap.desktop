@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name[ja_JP]=Xmodmap
-Name=Xmodmap
-Comment[ja_JP]=Key mapper
-Comment=Key mapper
-Exec=xmodmap ~/.Xmodmap

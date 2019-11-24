@@ -5,7 +5,7 @@ set -e
 BASEBACKUPDIR="${HOME}/.dotfiles.bak"
 BACKUPDIR=${BASEBACKUPDIR}/`date +%Y%m%d%H%M%S`
 CURRENT=`pwd`
-LISTFILE='install_list'
+LISTFILE='target_list'
 
 mkbakdir() {
   [ -d ${BASEBACKUPDIR} ] || mkdir ${BASEBACKUPDIR}
@@ -33,6 +33,15 @@ exists() {
 }
 
 # main
+echo "\nInstall the following files."
+while read FILE; do echo "  "${FILE}; done < ${LISTFILE}
+echo ""
+read -p "OK? (y/N): " yn 
+
+if [ "y" != "${yn}" ]; then
+  exit 1
+fi
+
 while read FILE; do
   echo "===== ${FILE} ====="
   exists ${FILE} && backup ${FILE} && echo "${FILE} is backup"

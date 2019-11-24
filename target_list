@@ -1,0 +1,5 @@
+.gitconfig
+.gitconfig.local
+.tmux.conf
+.zprofile
+.zshrc
