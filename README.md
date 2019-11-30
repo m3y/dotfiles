@@ -15,24 +15,21 @@ $ git clone git@github.com:m3y/dotfiles.git
 
 2. install
 ```
-$ cat target_list # Show installation target
-.bin
-.tmux.conf
-
-etc, etc
-
 $ ./install
+  Install the following files.
+    .gitconfig
+    .gitconfig.local
+    .tmux.conf
+    .zprofile
+    .zshrc
+    :
+
+  OK? (y/N): y
 ```
 
 Check for differences
 ---------------------
 
 ```
-$ cat target_list # Show difference check target
-.bin
-.tmux.conf
-
-etc, etc
-
 $ ./rcdiff
 ```
