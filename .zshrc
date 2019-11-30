@@ -21,6 +21,7 @@ alias d="docker"
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
+alias mkdir="mkdir -p"
 alias pbcopy="xsel --clipboard --input"
 
 # common
