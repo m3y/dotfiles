@@ -5,6 +5,7 @@
 #  - xsel
 #  - peco
 #  - ghq
+#  - https://github.com/m3y/password-store-utility
 
 # vim mode
 bindkey -v
@@ -23,6 +24,7 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias mkdir="mkdir -p"
 alias pbcopy="xsel --clipboard --input"
+alias pc="p -c"
 
 # common
 setopt IGNORE_EOF
@@ -88,7 +90,7 @@ source ~/.zplug/init.zsh
 
 # zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'

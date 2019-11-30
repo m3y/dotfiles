@@ -1,5 +1,7 @@
 .gitconfig
-.gitconfig.local
 .tmux.conf
 .zprofile
 .zshrc
+.config/nvim/init.vim
+.config/nvim/dein.toml
+.config/nvim/plugins/
