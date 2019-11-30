@@ -1,47 +1,76 @@
-bindkey -v # vim mode
+# This setting requires the following command.
+#
+#  - nvim
+#  - docker
+#  - xsel
+#  - peco
+#  - ghq
+#  - https://github.com/m3y/password-store-utility
+
+# vim mode
+bindkey -v
 
 # aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias ll="clear;ls -lha"
 alias vi="nvim"
 alias vim="nvim"
 alias c="clear"
 alias d="docker"
 alias mv="mv -i"
-alias cp="cp -ir"
-alias rm="rm -ir"
-alias virc="vi ~/.zshrc"
-alias sorc="source ~/.zshrc"
-alias vimrc="vi ~/.vimrc"
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias pc="p -c"
+alias cp="cp -i"
+alias rm="rm -i"
+alias mkdir="mkdir -p"
 alias pbcopy="xsel --clipboard --input"
+alias pc="p -c"
 
+# common
+setopt IGNORE_EOF
+setopt NO_FLOW_CONTROL
+setopt NO_BEEP
+setopt INTERACTIVE_COMMENTS
+
+# extend cd
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 
-setopt IGNORE_EOF
-setopt NO_FLOW_CONTROL
-setopt NO_BEEP
+cdpath=(.. ~)
+
+function peco-src() {
+  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^g' peco-src
 
 # completion
 autoload -Uz compinit
 compinit
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-## Pipenv
-#eval "$(pipenv --completion)"
 
 # history
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
 autoload -Uz history-search-end
-zle -N history-beginning-search-backward-end \
-  history-search-end
-bindkey "^o" history-beginning-search-backward-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^p" history-beginning-search-backward-end
+bindkey "^n" history-beginning-search-forward-end
 
 function select_history() {
   BUFFER=$(history -n -r 1 | awk '!a[$0]++' | peco)
@@ -61,19 +90,14 @@ source ~/.zplug/init.zsh
 
 # zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
-# zsh-completions
-zplug "zsh-users/zsh-completions"
-# enhancd
-zplug "b4b4r07/enhancd", use:init.sh
-export ENHANCD_FILTER=peco
-export ENHANCD_HOOK_AFTER_CD="echo \=\=\= ls \=\=\=;ls"
-function ghq_search() {
-  __enhancd::cd -G
-}
-zle -N ghq_search
-bindkey '^G' ghq_search
 # powerlevel9k
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='awesome-fontconfig'
@@ -116,8 +140,6 @@ POWERLEVEL9K_PYTHON_ICON=$'\uE606'
 POWERLEVEL9K_VIRTUALENV_FOREGROUND="green"
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="grey"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# zsh-colors
-zplug "Tarrasch/zsh-colors"
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
@@ -130,9 +152,3 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-if [[ "${TMUX}" = "" ]]; then
-  tmux
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
