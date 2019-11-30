@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export PATH=${PATH}:${HOME}/.bin
+#export PATH=${PATH}
 
 # for Japanese input
 export GTK_IM_MODULE=fcitx
