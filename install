@@ -33,6 +33,15 @@ exists() {
 }
 
 # main
+echo "\nInstall the following files."
+while read FILE; do echo "  "${FILE}; done < ${LISTFILE}
+echo ""
+read -p "OK? (y/N): " yn 
+
+if [ "y" != "${yn}" ]; then
+  exit 1
+fi
+
 while read FILE; do
   echo "===== ${FILE} ====="
   exists ${FILE} && backup ${FILE} && echo "${FILE} is backup"
