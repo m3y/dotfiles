@@ -87,12 +87,14 @@ source ~/.zplug/init.zsh
 
 # zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
-# zsh-completions
-zplug "zsh-users/zsh-completions"
-# zsh-colors
-zplug "Tarrasch/zsh-colors"
 # powerlevel9k
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='awesome-fontconfig'
