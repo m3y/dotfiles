@@ -5,3 +5,4 @@
 .config/nvim/init.vim
 .config/nvim/dein.toml
 .config/nvim/plugins/
+.config/memo/config.toml

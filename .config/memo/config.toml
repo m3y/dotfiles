@@ -1,0 +1,6 @@
+memodir = "/home/m3y/.ghq/src/github.com/m3y/documents/posts"
+editor = "/usr/bin/nvim"
+column = 30
+selectcmd = "peco"
+grepcmd = "grep -nH ${PATTERN} ${FILES}"
+assetsdir = "."
