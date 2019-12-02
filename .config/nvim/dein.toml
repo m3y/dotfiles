@@ -18,6 +18,3 @@ hook_add = 'source ~/.config/nvim/plugins/lightline.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
