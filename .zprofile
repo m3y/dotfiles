@@ -9,7 +9,7 @@ export QT_IM_MODULE=fcitx
 export PASSWORD_STORE_DIR=/home/m3y/Documents/Dropbox/data
 
 # for GOLANG
-export GOPATH="~/.go"
+export GOPATH="${HOME}/.go"
 
 # path
 export PATH="${PATH}:${GOPATH}/bin"
