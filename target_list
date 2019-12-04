@@ -7,4 +7,5 @@
 .config/nvim/dein_lazy.toml
 .config/nvim/plugins/
 .config/memo/config.toml
+.config/alacritty/alacritty.yml
 .xprofile
