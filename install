@@ -36,7 +36,7 @@ exists() {
 echo -e "\n  Install the following files."
 while read FILE; do echo "    "${FILE}; done < ${LISTFILE}
 echo ""
-read -p "  OK? (y/N): " yn 
+read -p "  OK? (y/N): " yn
 
 if [ "y" != "${yn}" ]; then
   exit 1
