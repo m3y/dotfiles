@@ -6,7 +6,7 @@
 	branch = auto
 [core]
 	autocrlf = input
-	editor = vim -c \"set fenc=utf-8\"
+	editor = nvim -c \"set fenc=utf-8\"
 [alias]
 	st = status -s
 	stat = status
@@ -22,5 +22,5 @@
 	tool = vimdiff
 	conflictstyle = diff3
 [ghq]
-	root = ~/.ghq
+	root = ~/.ghq/src
 	root = ~/.go/src

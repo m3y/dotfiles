@@ -1,5 +1,15 @@
-export EDITOR=vim
-export GOPATH=${HOME}/.go
-export PATH="$(brew --prefix)/opt/python3/libexec/bin:${PATH}:${HOME}/.bin:/usr/local/bin:${GOPATH}/bin"
-export PASSWORD_STORE_DIR=/Users/m3y/Documents/gdrive/data
-export PASSWORD_STORE_GIT=/Users/m3y/Documents/gdrive/data
+export EDITOR=nvim
+
+# for Japanese input
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
+
+# for passstore
+export PASSWORD_STORE_DIR=/home/m3y/Documents/Dropbox/data
+
+# for GOLANG
+export GOPATH="${HOME}/.go"
+
+# path
+export PATH="${PATH}:${GOPATH}/bin"
