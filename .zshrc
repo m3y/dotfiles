@@ -152,3 +152,7 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+if [ -z "${TMUX}" ]; then
+  /usr/bin/tmux
+fi
