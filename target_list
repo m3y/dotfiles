@@ -9,3 +9,4 @@
 .config/memo/config.toml
 .config/alacritty/alacritty.yml
 .xprofile
+.Xmodmap
