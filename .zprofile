@@ -1,4 +1,5 @@
 export EDITOR=nvim
+export LANG=ja_JP.UTF-8
 
 # for Japanese input
 export GTK_IM_MODULE=fcitx
