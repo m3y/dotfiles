@@ -32,6 +32,12 @@ exists() {
   fi
 }
 
+createlink() {
+  local TARGET=$1
+  mkdir -p `dirname ${HOME}/${TARGET}`
+  ln -s ${CURRENT}/${TARGET} ${HOME}/${TARGET}
+}
+
 # main
 echo -e "\n  Install the following files."
 while read FILE; do echo "    "${FILE}; done < ${LISTFILE}
@@ -44,6 +50,7 @@ fi
 
 while read FILE; do
   echo "===== ${FILE} ====="
-  exists ${FILE} && backup ${FILE} && echo "${FILE} is backup"
-  cp -r ${CURRENT}/${FILE} ${HOME}/${FILE} && echo ${FILE}" ok"
+  [ -L ${HOME}/${FILE} ] && unlink ${HOME}/${FILE} && echo "${FILE} unlinked"
+  exists ${FILE} && backup ${FILE} && echo "Backup ${FILE}"
+  createlink ${FILE} && echo "Create a '${FILE}' symlink"
 done < ${LISTFILE}

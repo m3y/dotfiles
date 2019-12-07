@@ -8,12 +8,12 @@ My dotfiles
 How to install
 --------------
 
-1. clone
+1. Clone
 ```
 $ git clone git@github.com:m3y/dotfiles.git
 ```
 
-2. install
+2. Install(create symlink)
 ```
 $ ./install
   Install the following files.
@@ -25,11 +25,4 @@ $ ./install
     :
 
   OK? (y/N): y
-```
-
-Check for differences
----------------------
-
-```
-$ ./rcdiff
 ```
