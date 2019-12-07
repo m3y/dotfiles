@@ -5,7 +5,9 @@
 .config/nvim/init.vim
 .config/nvim/dein.toml
 .config/nvim/dein_lazy.toml
-.config/nvim/plugins/
+.config/nvim/plugins/lightline.vim
+.config/nvim/plugins/nerdtree.vim
+.config/nvim/plugins/vim-colors-solarized.vim
 .config/memo/config.toml
 .config/alacritty/alacritty.yml
 .xprofile
