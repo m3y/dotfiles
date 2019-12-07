@@ -53,5 +53,4 @@ while read FILE; do
   [ -L ${HOME}/${FILE} ] && unlink ${HOME}/${FILE} && echo "${FILE} unlinked"
   exists ${FILE} && backup ${FILE} && echo "Backup ${FILE}"
   createlink ${FILE} && echo "Create a '${FILE}' symlink"
-  break
 done < ${LISTFILE}
