@@ -43,6 +43,10 @@ set noswapfile
 set nrformats=octal
 set hidden
 set autoread
+" Disable fold
+set foldmethod=syntax
+set foldlevel=100
+
 
 " keymap
 nnoremap j gj
