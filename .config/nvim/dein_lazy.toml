@@ -3,10 +3,6 @@ repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown', 'mkd']
 
 [[plugins]]
-repo = 'joker1007/vim-markdown-quote-syntex'
-on_ft = ['markdown', 'mkd']
-
-[[plugins]]
 repo = 'kannokanno/previm'
 on_ft = ['markdown', 'mkd']
 
