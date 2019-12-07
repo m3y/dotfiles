@@ -1,5 +1,7 @@
 ! original setting
+! swap colon and semicolon
 keycode  47 = colon semicolon colon semicolon
+! change caps lock to ctrl
 clear lock
 clear control
 keycode 66 = Control_L
