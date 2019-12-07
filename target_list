@@ -12,3 +12,4 @@
 .config/alacritty/alacritty.yml
 .xprofile
 .Xmodmap
+.config/ulauncher/settings.json
