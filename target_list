@@ -13,3 +13,4 @@
 .xprofile
 .Xmodmap
 .config/ulauncher/settings.json
+.p10k.zsh
