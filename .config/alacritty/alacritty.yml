@@ -8,7 +8,7 @@ font:
   italic:
     family: Cica
     style: Italic
-  size: 6.0
+  size: 12.0
 
 colors:
   # Colors (Solarized Dark)
