@@ -5,6 +5,7 @@
 #  - xsel
 #  - peco
 #  - ghq
+#  - bat
 #  - https://github.com/m3y/password-store-utility
 
 # vim mode
@@ -23,6 +24,7 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
 alias mkdir="mkdir -p"
+alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias pc="p -c"
 
