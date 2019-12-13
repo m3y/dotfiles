@@ -18,3 +18,12 @@ hook_add = 'source ~/.config/nvim/plugins/lightline.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'tsaleh/vim-align'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'gregsexton/gitv'
