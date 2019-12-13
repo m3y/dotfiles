@@ -100,8 +100,8 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
-# powerlevel9k
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+# powerlevel10k
+zplug romkatv/powerlevel10k, as:theme, depth:1
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
