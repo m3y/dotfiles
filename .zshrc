@@ -1,7 +1,6 @@
 # This setting requires the following command.
 #
 #  - nvim
-#  - docker
 #  - xsel
 #  - xdg-open
 #  - peco
@@ -20,7 +19,6 @@ alias ll="clear;ls -lha"
 alias vi="nvim"
 alias vim="nvim"
 alias c="clear"
-alias d="docker"
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
