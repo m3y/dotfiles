@@ -3,6 +3,7 @@
 #  - nvim
 #  - docker
 #  - xsel
+#  - xdg-open
 #  - peco
 #  - ghq
 #  - bat
@@ -26,6 +27,7 @@ alias rm="rm -i"
 alias mkdir="mkdir -p"
 alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
+alias open="xdg-open"
 alias pc="p -c"
 
 # common
