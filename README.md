@@ -5,6 +5,31 @@ Overview
 --------
 My dotfiles
 
+Environment
+-----------
+
+|**shell**|zsh|
+|**editor**|neovim|
+|**terminal multiplexer**|tmux|
+|**terminal**|alacritty|
+|**application launcher**|ulauncher|
+
+Dependency
+----------
+- alacritty
+- bat
+- ghq
+- [memo](https://github.com/mattn/memo.git)
+- neovim
+- [password-store-utility](https://github.com/m3y/password-store-utility.git)
+- peco
+- tmux
+- ulauncher
+- xdg-open
+- xsel
+- zplug
+- zsh
+
 How to install
 --------------
 
