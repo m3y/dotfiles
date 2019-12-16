@@ -219,3 +219,9 @@ hook_add = '''
     let g:go_highlight_build_constraints = 1
     let g:go_highlight_interfaces = 1
 '''
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+    let g:terraform_fmt_on_save = 1
+'''

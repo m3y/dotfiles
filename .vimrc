@@ -16,7 +16,7 @@ set softtabstop=4 " 連続した空白に対してタブキーやバックスペ
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set shiftwidth=4 " smartindent で増減する幅
-set listchars=tab:__ " タブを明示的に表示させる
+set listchars=tab:-- " タブを明示的に表示させる
 set list
 
 " 表示周り
@@ -105,6 +105,9 @@ nmap c :%foldclose<CR>
 nnoremap ,. :tabnew $MYVIMRC<CR>
 " vimrc の即時反映
 nnoremap ,s. :<C-u>source $MYVIMRC<CR>
+
+" terminal
+autocmd * ColorScheme highlight Terminal ctermbg=none
 
 " テンプレート
 " -----------

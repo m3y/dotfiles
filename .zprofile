@@ -1,5 +1,7 @@
-export EDITOR=vim
-export GOPATH=${HOME}/.go
+export EDITOR=nvim
+export LANG=ja_JP.UTF-8
+export GOPATH=${HOME}/work/go:${HOME}/.ghq
 export PATH="$(brew --prefix)/opt/python3/libexec/bin:${PATH}:${HOME}/.bin:/usr/local/bin:${GOPATH}/bin"
-export PASSWORD_STORE_DIR=/Users/m3y/Documents/gdrive/data
-export PASSWORD_STORE_GIT=/Users/m3y/Documents/gdrive/data
+export JAVA_HOME=`/usr/libexec/java_home -v 1.11`
+export DOCKER_BUILDKIT=1
+export GO111MODULE=on
