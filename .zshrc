@@ -15,9 +15,11 @@ alias vimrc="vi ~/.vimrc"
 alias diff="colordiff"
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias fzf="fzf --reverse --select-1 --exit-0"
-alias pc="pass -c"
-alias workon="source ~/.venv/work/bin/activate"
+alias pc="p -c"
+alias al="source ~/.bin/awslogin"
+alias python="python3"
+alias pip="pip3"
+alias cat="bat"
 
 setopt AUTO_CD
 setopt AUTO_PUSHD
@@ -33,7 +35,7 @@ compinit
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## Pipenv
-eval "$(pipenv --completion)"
+#eval "$(pipenv --completion)"
 
 # history
 HISTFILE=~/.zsh_history
@@ -46,8 +48,9 @@ zle -N history-beginning-search-backward-end \
 bindkey "^o" history-beginning-search-backward-end
 
 function select_history() {
-  BUFFER=$(history -n -r 1 | awk '!a[$0]++' | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | awk '!a[$0]++' | peco)
   CURSOR=$#BUFFER
+  zle reset-prompt
 }
 zle -N select_history
 bindkey '^r' select_history
@@ -74,32 +77,16 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 # enhancd
 zplug "b4b4r07/enhancd", use:init.sh
-export ENHANCD_FILTER=fzf
-export ENHANCD_HOOK_AFTER_CD=ls
+export ENHANCD_FILTER=peco
+export ENHANCD_HOOK_AFTER_CD="echo ls; ls"
 function ghq_search() {
   __enhancd::cd -G
 }
 zle -N ghq_search
 bindkey '^G' ghq_search
-# powerlevel9k
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" >_ $ "
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user status dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_golang virtualenv kubecontext)
-POWERLEVEL9K_PYTHON_ICON=$'\uE606'
-POWERLEVEL9K_VIRTUALENV_FOREGROUND="green"
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
-POWERLEVEL9K_CUSTOM_GOLANG="echo `go version | cut -d' ' -f3 | sed 's/^go//g' ` $'\uE724'"
-POWERLEVEL9K_CUSTOM_GOLANG_FOREGROUND="blue"
-POWERLEVEL9K_CUSTOM_GOLANG_BACKGROUND="black"
-POWERLEVEL9K_KUBECONTEXT_FOREGROUND='yellow'
-POWERLEVEL9K_KUBECONTEXT_BACKGROUND='black'
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+# powerlevel10k
+zplug romkatv/powerlevel10k, as:theme, depth:1
+[ -f ${HOME}/.p10k.zsh ] && source ${HOME}/.p10k.zsh
 # zsh-colors
 zplug "Tarrasch/zsh-colors"
 
@@ -116,6 +103,6 @@ fi
 zplug load
 
 # for kubernetes
-if [ -x `which kubectl > /dev/null` ]; then
-    source <(kubectl completion zsh)
+if [[ "${TMUX}" = "" ]]; then
+  tmux
 fi
