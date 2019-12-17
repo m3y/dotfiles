@@ -47,12 +47,22 @@ set autoread
 set foldmethod=syntax
 set foldlevel=100
 
-
 " keymap
 nnoremap j gj
 nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
+
+if !has('gui_running')
+  augroup opacity
+    autocmd!
+    autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
+    autocmd VimEnter,ColorScheme * highlight LineNr ctermbg=none
+    autocmd VimEnter,ColorScheme * highlight SignColumn ctermbg=none
+    autocmd VimEnter,ColorScheme * highlight VertSplit ctermbg=none
+    autocmd VimEnter,ColorScheme * highlight NonText ctermbg=none
+  augroup END
+endif
 
 " dein
 let s:dein_cache_path = expand('~/.cache/nvim/dein')
