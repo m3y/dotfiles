@@ -35,7 +35,7 @@ function! MyFilename()
        \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 function! MyFugitive()
-    return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? ''.fugitive#head() : ''
+    return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && len(fugitive#head()) ? ' '.fugitive#head() : ''
 endfunction
 function! MyFileformat()
     return winwidth('.') > 70 ? &fileformat : ''
