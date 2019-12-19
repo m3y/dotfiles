@@ -23,4 +23,3 @@
 	conflictstyle = diff3
 [ghq]
 	root = ~/.ghq/src
-	root = ~/.go/src
