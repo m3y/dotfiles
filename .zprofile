@@ -14,6 +14,7 @@ export DOCKER_BUILDKIT=1
 
 # for GOLANG
 export GOPATH="${HOME}/.go"
+export GO111MODULE=on
 
 # path
 export PATH="${PATH}:${GOPATH}/bin"
