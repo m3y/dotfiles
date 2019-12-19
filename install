@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -e -o pipefail
 
 BASEBACKUPDIR="${HOME}/.dotfiles.bak"
 BACKUPDIR=${BASEBACKUPDIR}/`date +%Y%m%d%H%M%S`
@@ -38,9 +38,24 @@ createlink() {
   ln -s ${CURRENT}/${TARGET} ${HOME}/${TARGET}
 }
 
+dotfiles() {
+  for FILE in .??*; do
+    [ "${FILE}" = ".git" ] && continue
+    [ "${FILE}" = ".gitconfig.local" ] && continue
+
+    if [ "${FILE}" = ".config" ]; then
+        for CONFIGFILE in .config/*; do
+          echo ${CONFIGFILE}
+        done
+    else
+      echo ${FILE}
+    fi
+  done
+}
+
 # main
 echo -e "\n  Install the following files."
-while read FILE; do echo "    "${FILE}; done < ${LISTFILE}
+dotfiles | while read FILE; do echo "    "${FILE}; done
 echo ""
 read -p "  OK? (y/N): " yn
 
@@ -48,9 +63,9 @@ if [ "y" != "${yn}" ]; then
   exit 1
 fi
 
-while read FILE; do
+dotfiles | while read FILE; do
   echo "===== ${FILE} ====="
   [ -L ${HOME}/${FILE} ] && unlink ${HOME}/${FILE} && echo "${FILE} unlinked"
   exists ${FILE} && backup ${FILE} && echo "Backup ${FILE}"
   createlink ${FILE} && echo "Create a '${FILE}' symlink"
-done < ${LISTFILE}
+done
