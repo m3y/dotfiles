@@ -5,7 +5,6 @@ set -e -o pipefail
 BASEBACKUPDIR="${HOME}/.dotfiles.bak"
 BACKUPDIR=${BASEBACKUPDIR}/`date +%Y%m%d%H%M%S`
 CURRENT=`pwd`
-LISTFILE='target_list'
 
 mkbakdir() {
   [ -d ${BASEBACKUPDIR} ] || mkdir ${BASEBACKUPDIR}
