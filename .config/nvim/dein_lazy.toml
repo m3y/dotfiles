@@ -14,8 +14,3 @@ on_ft = ['markdown', 'mkd']
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = 'source ~/.config/nvim/plugins/vim-go.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-on_ft = 'go'
-hook_add = 'source ~/.config/nvim/plugins/vim-lsp.vim'
