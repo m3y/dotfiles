@@ -64,6 +64,13 @@ if !has('gui_running')
   augroup END
 endif
 
+" template
+augroup template
+  autocmd!
+  autocmd BufNewFile *.py 0r ${HOME}/.config/nvim/templates/python_template.txt
+  autocmd BufNewFile *.go 0r ${HOME}/.config/nvim/templates/go_template.txt
+augroup END
+
 " dein
 let s:dein_cache_path = expand('~/.cache/nvim/dein')
 let s:dein_dir = s:dein_cache_path
