@@ -9,8 +9,3 @@ on_ft = ['markdown', 'mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown', 'mkd']
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = 'source ~/.config/nvim/plugins/vim-go.vim'
