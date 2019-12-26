@@ -27,6 +27,9 @@ alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias open="xdg-open"
 alias pc="p -c"
+alias m="memo"
+alias d="docker"
+alias k="kubectl"
 
 # common
 setopt IGNORE_EOF
