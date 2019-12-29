@@ -16,7 +16,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-set list
+set list listchars=tab:_\ 
 
 " Display
 syntax on
