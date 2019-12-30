@@ -12,7 +12,9 @@
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/ulauncher/
-!/.config/ulauncher/**
+!/.config/ulauncher/settings.json
+!/.config/ulauncher/extensions.json
+!/.config/ulauncher/shortcuts.json
 !/.gitconfig
 !/.gitconfig.local
 !/.gitignore
