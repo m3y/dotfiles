@@ -1,1 +1,9 @@
-{}
+{
+    "com.github.m3y.ulauncher-passstore": {
+        "id": "com.github.m3y.ulauncher-passstore",
+        "url": "https://github.com/m3y/ulauncher-passstore",
+        "updated_at": "2019-12-31T11:41:15.740893",
+        "last_commit": "63eda07605808e907ae1a81855a0c8bef47943a2",
+        "last_commit_time": "2019-12-31T02:10:16"
+    }
+}
