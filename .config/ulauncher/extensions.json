@@ -1,9 +1,9 @@
 {
-    "com.github.m3y.ulauncher-passstore": {
-        "id": "com.github.m3y.ulauncher-passstore",
-        "url": "https://github.com/m3y/ulauncher-passstore",
-        "updated_at": "2019-12-31T21:24:21.744462",
-        "last_commit": "6b7f628a436f64ced63cb239d19d4e0833c48a1d",
-        "last_commit_time": "2019-12-31T12:21:29"
+    "com.github.m3y.ulauncher-pass-paster": {
+        "id": "com.github.m3y.ulauncher-pass-paster",
+        "url": "https://github.com/m3y/ulauncher-pass-paster",
+        "updated_at": "2020-01-02T23:27:59.236659",
+        "last_commit": "47626f2296078d098cb027ec05e1f62fbe329e87",
+        "last_commit_time": "2020-01-02T14:25:55"
     }
 }
