@@ -10,7 +10,6 @@
 #  - docker
 #  - kubectl
 #  - https://github.com/mattn/memo
-#  - https://github.com/m3y/password-store-utility
 
 # vim mode
 bindkey -v
@@ -31,7 +30,6 @@ alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias open="xdg-open"
 alias jq="gojq"
-alias pc="p -c"
 alias m="memo"
 alias d="docker"
 alias k="kubectl"
