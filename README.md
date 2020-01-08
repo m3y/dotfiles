@@ -8,6 +8,8 @@ My dotfiles
 Environment
 -----------
 
+| - |application name|
+|---------|---|
 |**shell**|zsh|
 |**editor**|neovim|
 |**terminal multiplexer**|tmux|
