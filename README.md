@@ -29,7 +29,6 @@ Dependency
 - ulauncher
 - [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
 - xdg-open
-- xmodmap
 - xsel
 - zplug
 - zsh
