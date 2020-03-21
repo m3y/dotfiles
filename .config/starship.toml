@@ -1,4 +1,5 @@
 add_newline = false
 
 [kubernetes]
+symbol = "☸  "
 disabled = false
