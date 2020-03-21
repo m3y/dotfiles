@@ -21,13 +21,15 @@ Dependency
 - alacritty
 - bat
 - ghq
-- [memo](https://github.com/mattn/memo.git)
+- [memo](https://github.com/mattn/memo)
 - neovim
-- [password-store-utility](https://github.com/m3y/password-store-utility.git)
 - peco
+- [starship](https://starship.rs/ja-JP/)
 - tmux
 - ulauncher
+- [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
 - xdg-open
+- xmodmap
 - xsel
 - zplug
 - zsh
