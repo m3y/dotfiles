@@ -10,6 +10,7 @@
 #  - docker
 #  - kubectl
 #  - https://github.com/mattn/memo
+#  - Starship
 
 # vim mode
 bindkey -v
@@ -88,10 +89,6 @@ function select_history() {
 zle -N select_history
 bindkey '^r' select_history
 
-# prompt
-PROMPT="[%n@%m] %# "
-RPROMPT="[%~]"
-
 # ===== zplug =====
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -112,9 +109,6 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
 # zsh-autosuggestions
 zplug "zsh-users/zsh-autosuggestions"
-# powerlevel10k
-zplug romkatv/powerlevel10k, as:theme, depth:1
-[ -f ${HOME}/.p10k.zsh ] && source ${HOME}/.p10k.zsh
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
@@ -131,3 +125,5 @@ zplug load
 if [ -z "${TMUX}" ]; then
   /usr/bin/tmux
 fi
+
+eval "$(starship init zsh)"
