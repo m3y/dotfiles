@@ -2,4 +2,11 @@ add_newline = false
 
 [kubernetes]
 symbol = "☸  "
+style = "dimmed blue"
 disabled = false
+
+[aws]
+disabled = true
+
+[terraform]
+show_version = true
