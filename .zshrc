@@ -7,10 +7,8 @@
 #  - ghq
 #  - bat
 #  - gojq
-#  - docker
-#  - kubectl
-#  - https://github.com/mattn/memo
 #  - Starship
+#  - asdf
 
 # vim mode
 bindkey -v
@@ -31,9 +29,6 @@ alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias open="xdg-open"
 alias jq="gojq"
-alias m="memo"
-alias d="docker"
-alias k="kubectl"
 
 # common
 setopt IGNORE_EOF
@@ -58,12 +53,6 @@ function peco-src() {
 }
 zle -N peco-src
 bindkey '^g' peco-src
-
-# completion
-autoload -Uz compinit
-compinit
-zstyle ':completion:*:default' menu select=2
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # history
 setopt SHARE_HISTORY
@@ -122,8 +111,20 @@ fi
 
 zplug load
 
+# for asdf
+. ${HOME}/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+
+# completion
+autoload -Uz compinit
+compinit
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# tmux control
 if [ -z "${TMUX}" ]; then
   /usr/bin/tmux
 fi
 
+# start starship
 eval "$(starship init zsh)"
