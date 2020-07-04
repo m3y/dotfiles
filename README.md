@@ -11,7 +11,7 @@ Environment
 | - |application name|
 |---------|---|
 |**shell**|zsh|
-|**editor**|neovim|
+|**editor**|vim|
 |**terminal multiplexer**|tmux|
 |**terminal**|alacritty|
 |**application launcher**|ulauncher|
@@ -22,12 +22,12 @@ Dependency
 - bat
 - ghq
 - [memo](https://github.com/mattn/memo)
-- neovim
 - peco
 - [starship](https://starship.rs/ja-JP/)
 - tmux
 - ulauncher
 - [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
+- vim
 - xdg-open
 - xsel
 - zplug

@@ -3,18 +3,18 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
-hook_add = 'source ~/.config/nvim/plugins/vim-colors-solarized.vim'
+hook_add = 'source ~/.vim/plugins/vim-colors-solarized.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-hook_add = 'source ~/.config/nvim/plugins/nerdtree.vim'
+hook_add = 'source ~/.vim/plugins/nerdtree.vim'
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.config/nvim/plugins/lightline.vim'
+hook_add = 'source ~/.vim/plugins/lightline.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'

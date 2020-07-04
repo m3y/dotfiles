@@ -67,12 +67,12 @@ endif
 " template
 augroup template
   autocmd!
-  autocmd BufNewFile *.py 0r ${HOME}/.config/nvim/templates/python_template.txt
-  autocmd BufNewFile *.go 0r ${HOME}/.config/nvim/templates/go_template.txt
+  autocmd BufNewFile *.py 0r ${HOME}/.vim/templates/python_template.txt
+  autocmd BufNewFile *.go 0r ${HOME}/.vim/templates/go_template.txt
 augroup END
 
 " dein
-let s:dein_cache_path = expand('~/.cache/nvim/dein')
+let s:dein_cache_path = expand('~/.cache/vim/dein')
 let s:dein_dir = s:dein_cache_path
       \ .'/repos/github.com/Shougo/dein.vim'
 
@@ -86,8 +86,8 @@ endif
 if dein#load_state(s:dein_cache_path)
   call dein#begin(s:dein_cache_path)
 
-  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy' : 0})
-  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy' : 1})
+  call dein#load_toml('~/.vim/rc/dein.toml', {'lazy' : 0})
+  call dein#load_toml('~/.vim/rc/dein_lazy.toml', {'lazy' : 1})
 
   call dein#end()
   call dein#save_state()

@@ -1,4 +1,4 @@
-export EDITOR=nvim
+export EDITOR=vim
 export LANG=ja_JP.UTF-8
 
 # for Japanese input

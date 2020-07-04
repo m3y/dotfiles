@@ -1,6 +1,6 @@
 # This setting requires the following command.
 #
-#  - nvim
+#  - vim
 #  - xsel
 #  - xdg-open
 #  - peco
@@ -18,8 +18,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias ll="clear;ls -lha"
-alias vi="nvim"
-alias vim="nvim"
+alias vi="vim"
 alias c="clear"
 alias mv="mv -i"
 alias cp="cp -i"

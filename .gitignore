@@ -9,8 +9,6 @@
 !/.config/alacritty/**
 !/.config/memo/
 !/.config/memo/**
-!/.config/nvim/
-!/.config/nvim/**
 !/.config/ulauncher/
 !/.config/ulauncher/settings.json
 !/.config/ulauncher/extensions.json
@@ -20,6 +18,9 @@
 !/.gitconfig.local
 !/.gitignore
 !/.tmux.conf
+!/.vimrc
+!/.vim/
+!/.vim/**
 !/.xprofile
 !/.zprofile
 !/.zshrc
