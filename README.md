@@ -20,11 +20,13 @@ Dependency
 ----------
 - alacritty
 - bat
+- docker
 - ghq
 - [memo](https://github.com/mattn/memo)
 - peco
 - [starship](https://starship.rs/ja-JP/)
 - tmux
+- [translate-shell](https://github.com/soimort/translate-shell)
 - ulauncher
 - [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
 - vim

@@ -9,6 +9,7 @@
 #  - gojq
 #  - Starship
 #  - asdf
+#  - https://github.com/soimort/translate-shell
 
 # vim mode
 bindkey -v
@@ -28,6 +29,8 @@ alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias open="xdg-open"
 alias jq="gojq"
+alias e2j="docker run -it soimort/translate-shell en:ja"
+alias j2e="docker run -it soimort/translate-shell ja:en"
 
 # common
 setopt IGNORE_EOF
