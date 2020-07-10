@@ -45,6 +45,7 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+hook_add = 'source ~/.vim/plugins/vim-lsp-settings.vim'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
