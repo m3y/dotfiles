@@ -1,9 +1,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-hook_add = 'source ~/.vim/plugins/vim-colors-solarized.vim'
+#[[plugins]]
+#repo = 'altercation/vim-colors-solarized'
+#hook_add = 'source ~/.vim/plugins/vim-colors-solarized.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -49,3 +49,7 @@ hook_add = 'source ~/.vim/plugins/vim-lsp-settings.vim'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+hook_add = 'source ~/.vim/plugins/gruvbox.vim'
