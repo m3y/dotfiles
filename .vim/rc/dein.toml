@@ -48,6 +48,9 @@ repo = 'mattn/vim-lsp-settings'
 hook_add = 'source ~/.vim/plugins/vim-lsp-settings.vim'
 
 [[plugins]]
+repo = 'mattn/vim-lsp-icons'
+
+[[plugins]]
 repo = 'mattn/vim-goimports'
 
 [[plugins]]
