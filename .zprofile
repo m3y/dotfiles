@@ -15,6 +15,10 @@ export DOCKER_BUILDKIT=1
 # for GOLANG
 export GOPATH="${HOME}/.go"
 export GO111MODULE=on
-
-# path
 export PATH="${PATH}:${GOPATH}/bin"
+
+# for krew
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+# for Rust
+export PATH="$HOME/.cargo/bin:$PATH"
