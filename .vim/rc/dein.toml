@@ -56,3 +56,7 @@ repo = 'mattn/vim-goimports'
 [[plugins]]
 repo = 'morhetz/gruvbox'
 hook_add = 'source ~/.vim/plugins/gruvbox.vim'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = 'source ~/.vim/plugins/rust.vim'

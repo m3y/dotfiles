@@ -10,3 +10,10 @@ disabled = true
 
 [terraform]
 show_version = true
+
+[rust]
+symbol = " "
+
+[character]
+symbol = "󿘽 "
+vicmd_symbol = "󿘼 "
