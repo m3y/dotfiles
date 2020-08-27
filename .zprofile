@@ -20,5 +20,9 @@ export PATH="${PATH}:${GOPATH}/bin"
 # for krew
 export PATH="${PATH}:${HOME}/.krew/bin"
 
+# for pipenv
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_IGNORE_VIRTUALENVS=1
+
 # for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
