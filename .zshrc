@@ -18,6 +18,9 @@ bindkey -v
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias ls="exa --icons"
+alias ps="procs"
+alias grep="rg"
 alias ll="clear;ls -lha"
 alias vi="vim"
 alias c="clear"
@@ -26,11 +29,17 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias mkdir="mkdir -p"
 alias cat="bat"
-alias pbcopy="xsel --clipboard --input"
-alias open="xdg-open"
+#alias pbcopy="xsel --clipboard --input" # arch
+#alias open="xdg-open" # arch
 alias jq="gojq"
 alias e2j="docker run -it soimort/translate-shell en:ja"
 alias j2e="docker run -it soimort/translate-shell ja:en"
+alias pc="p -c" # osx
+alias diff="colordiff" # osx
+alias al="source ${HOME}/.bin/awslogin" # osx
+alias kctx="source ${HOME}/.ghq/src/github.com/m3y/kctx/kctx" # osx
+alias ax="source ${HOME}/.ghq/src/github.com/m3y/asctx/asctx" # osx
+alias ar="source ${HOME}/.ghq/src/github.com/m3y/arctx/arctx" # osx
 
 # common
 setopt IGNORE_EOF
@@ -114,7 +123,7 @@ fi
 zplug load
 
 # for asdf
-. ${HOME}/.asdf/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
 # completion
@@ -125,7 +134,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # tmux control
 if [ -z "${TMUX}" ]; then
-  /usr/bin/tmux
+  #/usr/bin/tmux # arch
+  /usr/local/bin/tmux # osx
 fi
 
 # start starship

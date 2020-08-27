@@ -7,7 +7,7 @@ export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
 
 # for passstore
-export PASSWORD_STORE_DIR=/home/m3y/Documents/Dropbox/data
+export PASSWORD_STORE_DIR=/Volumes/GoogleDrive/My\ Drive/pass
 
 # for Docker
 export DOCKER_BUILDKIT=1
@@ -26,3 +26,13 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 
 # for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# for Java
+export JAVA_HOME=`/usr/libexec/java_home -v "11"`
+export PATH="${JAVA_HOME}/bin:${PATH}"
+
+# for local
+export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin"
+
+# for homebrew
+export PATH="/usr/local/sbin:${PATH}"

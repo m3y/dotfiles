@@ -20,7 +20,12 @@
 !/.tmux.conf
 !/.vimrc
 !/.vim/
-!/.vim/**
+!/.vim/rc/
+!/.vim/rc/**
+!/.vim/plugins/
+!/.vim/plugins/**
+!/.vim/templates/
+!/.vim/templates/**
 !/.xprofile
 !/.zprofile
 !/.zshrc

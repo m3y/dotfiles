@@ -56,9 +56,9 @@ repo = 'mattn/vim-lsp-icons'
 [[plugins]]
 repo = 'mattn/vim-goimports'
 
-[[plugins]]
-repo = 'morhetz/gruvbox'
-hook_add = 'source ~/.vim/plugins/gruvbox.vim'
+#[[plugins]]
+#repo = 'morhetz/gruvbox'
+#hook_add = 'source ~/.vim/plugins/gruvbox.vim'
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
@@ -67,3 +67,23 @@ hook_add = 'source ~/.vim/plugins/rust.vim'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = 'source ~/.vim/plugins/vim-quickrun.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+hook_add = 'source ~/.vim/plugins/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+
+[[plugins]]
+repo = 'ghifarit53/tokyonight-vim'
+hook_add = 'source ~/.vim/plugins/tokyonight-vim.vim'
