@@ -12,7 +12,7 @@ export PASSWORD_STORE_DIR=/home/m3y/Documents/Dropbox/data
 # for Docker
 export DOCKER_BUILDKIT=1
 
-# for GOLANG
+# for Golang
 export GOPATH="${HOME}/.go"
 export GO111MODULE=on
 export PATH="${PATH}:${GOPATH}/bin"
