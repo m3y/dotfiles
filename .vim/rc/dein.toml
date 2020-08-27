@@ -29,6 +29,9 @@ repo = 'tpope/vim-fugitive'
 repo = 'gregsexton/gitv'
 
 [[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
 repo = 'mechatroner/rainbow_csv'
 
 [[plugins]]
