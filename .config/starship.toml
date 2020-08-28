@@ -14,6 +14,9 @@ show_version = true
 [rust]
 symbol = " "
 
+[python]
+symbol = " "
+
 [character]
 symbol = "󿘽 "
 vicmd_symbol = "󿘼 "
