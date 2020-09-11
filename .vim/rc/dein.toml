@@ -63,3 +63,7 @@ hook_add = 'source ~/.vim/plugins/gruvbox.vim'
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 hook_add = 'source ~/.vim/plugins/rust.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = 'source ~/.vim/plugins/vim-quickrun.vim'
