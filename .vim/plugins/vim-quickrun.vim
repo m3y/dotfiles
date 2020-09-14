@@ -4,10 +4,7 @@ endif
 
 let g:quickrun_config = {
   \  "_" : {
-  \    "outputter/buffer/split" : "rightbelow 12sp",
-  \    "outputter/error/error" : "quickfix",
-  \    "outputter/error/success" : "buffer",
-  \    "outputter" : "error",
+  \    "outputter": "popup",
   \  }
   \}
 
