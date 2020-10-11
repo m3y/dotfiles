@@ -1,5 +1,8 @@
 add_newline = false
 
+[git_status]
+disabled = true
+
 [kubernetes]
 symbol = "☸  "
 style = "dimmed blue"
@@ -14,9 +17,14 @@ show_version = true
 [rust]
 symbol = " "
 
+[golang]
+symbol = " "
+
 [python]
 symbol = " "
 
 [character]
-symbol = "󿘽 "
-vicmd_symbol = "󿘼 "
+format = "$symbol  "
+success_symbol = "[󿘽](bold green)"
+error_symbol = "[󿘽](bold red)"
+vicmd_symbol = "[󿘼](bold green)"
