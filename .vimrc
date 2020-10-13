@@ -69,6 +69,7 @@ augroup template
   autocmd!
   autocmd BufNewFile *.py 0r ${HOME}/.vim/templates/python_template.txt
   autocmd BufNewFile *.go 0r ${HOME}/.vim/templates/go_template.txt
+  autocmd BufNewFile *.sh 0r ${HOME}/.vim/templates/sh_template.txt
 augroup END
 
 " dein
