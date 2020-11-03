@@ -26,3 +26,6 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 
 # for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# for poetry
+export PATH="$HOME/.poetry/bin:$PATH"
