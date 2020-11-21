@@ -90,6 +90,9 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
+# zplug
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
@@ -112,6 +115,8 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+# ===== /zplug =====
 
 # for asdf
 . ${HOME}/.asdf/asdf.sh
