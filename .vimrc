@@ -36,6 +36,10 @@ set wrapscan
 
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
+" Terminal
+nnoremap <C-t> :bo terminal ++rows=15<CR>
+command! Terminal call popup_create(term_start([&shell], #{ hidden: 1, term_finish: 'close'}), #{ border: [], minwidth: winwidth(0)/2, minheigh: &lines/2 })
+
 " Other
 set nocompatible
 set nobackup
