@@ -5,7 +5,7 @@ let g:lightline = {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
       \ },
       \ 'component': {
-      \   'lineinfo': '%3l:%-2v',
+      \   'lineinfo': '%3l:%-2v',
       \ },
       \ 'component_function': {
       \   'modified': 'MyModified',
@@ -17,14 +17,14 @@ let g:lightline = {
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
+      \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 function! MyModified()
     return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 function! MyReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '' : ''
+    return &ft !~? 'help\|vimfiler\|gundo' && &ro ? 'ro' : ''
 endfunction
 function! MyFilename()
     return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .

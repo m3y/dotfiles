@@ -24,4 +24,4 @@
 [init]
 	templatedir = ~/.git_template/
 [ghq]
-	root = ~/.ghq/src
+	root = ~/ghq/src

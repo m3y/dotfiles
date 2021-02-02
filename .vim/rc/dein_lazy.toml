@@ -21,6 +21,6 @@ hook_source = 'call config#init#nerdtree#hook_source()'
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 hook_add = 'source ~/.vim/plugins/vim-nerdtree-syntax-highlight.vim'
 
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-hook_add = 'source ~/.vim/plugins/vim-devicons.vim'
+#[[plugins]]
+#repo = 'ryanoasis/vim-devicons'
+#hook_add = 'source ~/.vim/plugins/vim-devicons.vim'

@@ -18,7 +18,6 @@ bindkey -v
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias ls="lsd"
 alias ll="clear;ls -lha"
 alias vi="vim"
 alias c="clear"
@@ -26,11 +25,8 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
 alias mkdir="mkdir -p"
-alias cat="bat"
-alias pbcopy="xsel --clipboard --input"
-alias open="xdg-open"
-alias jq="gojq"
-alias kctx="source ~/.ghq/src/github.com/m3y/kctx/kctx"
+alias kctx="source ~/ghq/src/github.com/m3y/kctx/kctx"
+alias gco="~/ghq/src/github.com/m3y/git-checkout-utility/gco"
 
 # common
 setopt IGNORE_EOF
@@ -130,7 +126,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # tmux control
 if [ -z "${TMUX}" ]; then
-  /usr/bin/tmux
+  /usr/local/bin/tmux
 fi
 
 # start starship
