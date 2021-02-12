@@ -7,6 +7,8 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal signcolumn=yes
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
   nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gy <plug>(lsp-type-definition)
+  nmap <buffer> gi <plug>(lsp-implementation)
   nmap <buffer> gr <plug>(lsp-references)
   nmap <buffer> <leader>rn <plug>(lsp-rename)
   nmap <buffer> [g <plug>(lsp-previous-diagnostic)
