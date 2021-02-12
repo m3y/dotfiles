@@ -17,6 +17,8 @@
 !/.gitconfig
 !/.gitconfig.local
 !/.gitignore
+!/.git_template/
+!/.git_template/**
 !/.tmux.conf
 !/.vimrc
 !/.vim/
