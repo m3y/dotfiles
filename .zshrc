@@ -18,6 +18,7 @@ bindkey -v
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias ls="lsd"
 alias ll="clear;ls -lha"
 alias vi="vim"
 alias c="clear"

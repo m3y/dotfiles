@@ -23,6 +23,7 @@ Dependency
 - [ghq](https://github.com/x-motemen/ghq)
 - [gojq](https://github.com/itchyny/gojq)
 - [kctx](https://github.com/m3y/kctx)
+- [lsd](https://github.com/Peltoche/lsd)
 - [memo](https://github.com/mattn/memo)
 - [peco](https://github.com/peco/peco)
 - [starship](https://starship.rs/)
