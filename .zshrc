@@ -31,6 +31,7 @@ alias open="xdg-open"
 alias jq="gojq"
 alias e2j="docker run -it soimort/translate-shell en:ja"
 alias j2e="docker run -it soimort/translate-shell ja:en"
+alias kctx="source /home/m3y/.ghq/src/github.com/m3y/kctx/kctx"
 
 # common
 setopt IGNORE_EOF
