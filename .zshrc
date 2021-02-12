@@ -40,6 +40,7 @@ alias al="source ${HOME}/.bin/awslogin" # osx
 alias kctx="source ${HOME}/.ghq/src/github.com/m3y/kctx/kctx" # osx
 alias ax="source ${HOME}/.ghq/src/github.com/m3y/asctx/asctx" # osx
 alias ar="source ${HOME}/.ghq/src/github.com/m3y/arctx/arctx" # osx
+alias k="kubecolor"
 
 # common
 setopt IGNORE_EOF
@@ -99,6 +100,9 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
+# zplug
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
@@ -121,6 +125,8 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+# ===== /zplug =====
 
 # for asdf
 . $(brew --prefix asdf)/asdf.sh
