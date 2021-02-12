@@ -9,3 +9,17 @@ on_ft = ['markdown', 'mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown', 'mkd']
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeToggle']
+#depends = ['vim-devicons', 'vim-nerdtree-syntax-highlight', 'nerdtree-git-plugin']
+depends = ['vim-devicons', 'vim-nerdtree-syntax-highlight']
+hook_add = 'source ~/.vim/plugins/nerdtree.vim'
+hook_source = 'call config#init#nerdtree#hook_source()'
+
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'

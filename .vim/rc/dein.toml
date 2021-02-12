@@ -6,10 +6,6 @@ repo = 'Shougo/dein.vim'
 #hook_add = 'source ~/.vim/plugins/vim-colors-solarized.vim'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = 'source ~/.vim/plugins/nerdtree.vim'
-
-[[plugins]]
 repo = 'vim-scripts/sudo.vim'
 
 [[plugins]]
