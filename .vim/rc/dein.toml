@@ -63,3 +63,6 @@ hook_add = 'source ~/.vim/plugins/rust.vim'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = 'source ~/.vim/plugins/vim-quickrun.vim'
+
+[[plugins]]
+repo = 'skanehira/translate.vim'
