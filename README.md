@@ -13,34 +13,30 @@ Environment
 |**shell**|zsh|
 |**editor**|vim|
 |**terminal multiplexer**|tmux|
-|**terminal**|alacritty|
-|**application launcher**|ulauncher|
+|**terminal**|[alacritty](https://github.com/alacritty/alacritty)|
+|**application launcher**|[ulauncher](https://github.com/Ulauncher/Ulauncher)|
 
 Dependency
 ----------
-- alacritty
-- bat
-- docker
-- ghq
+- [asdf](https://github.com/asdf-vm/asdf)
+- [bat](https://github.com/sharkdp/bat)
+- [ghq](https://github.com/x-motemen/ghq)
+- [gojq](https://github.com/itchyny/gojq)
+- [kctx](https://github.com/m3y/kctx)
 - [memo](https://github.com/mattn/memo)
-- peco
-- [starship](https://starship.rs/ja-JP/)
-- tmux
-- [translate-shell](https://github.com/soimort/translate-shell)
-- ulauncher
+- [peco](https://github.com/peco/peco)
+- [starship](https://starship.rs/)
 - [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
-- vim
 - xdg-open
 - xsel
-- zplug
-- zsh
+- [zplug](https://github.com/zplug/zplug)
 
 How to install
 --------------
 
 1. Clone
 ```
-$ git clone git@github.com:m3y/dotfiles.git
+$ git clone https://github.com/m3y/kctx.git
 ```
 
 2. Install(create symlink)

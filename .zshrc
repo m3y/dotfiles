@@ -1,16 +1,15 @@
 # This setting requires the following command.
 #
+#  - asdf
+#  - bat
+#  - ghq
+#  - gojq
+#  - kctx(https://github.com/m3y/kctx)
+#  - peco
+#  - starship
 #  - vim
 #  - xsel
 #  - xdg-open
-#  - peco
-#  - ghq
-#  - bat
-#  - gojq
-#  - Starship
-#  - asdf
-#  - https://github.com/soimort/translate-shell
-#  - https://github.com/m3y/kctx
 
 # vim mode
 bindkey -v
@@ -30,8 +29,6 @@ alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias open="xdg-open"
 alias jq="gojq"
-alias e2j="docker run -it soimort/translate-shell en:ja"
-alias j2e="docker run -it soimort/translate-shell ja:en"
 alias kctx="source /home/m3y/.ghq/src/github.com/m3y/kctx/kctx"
 
 # common
