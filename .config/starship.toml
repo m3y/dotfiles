@@ -25,9 +25,3 @@ format = "$symbol  "
 success_symbol = "[󿘽](bold)"
 error_symbol = "[󿘽](bold red)"
 vicmd_symbol = "[󿘼](bold)"
-
-[env_var]
-symbol = "󿟲  "
-variable = "AWS_ARCTX"
-default = "no assume role"
-style = "dimmed cyan"
