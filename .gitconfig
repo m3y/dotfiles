@@ -22,6 +22,6 @@
 	tool = vimdiff
 	conflictstyle = diff3
 [init]
-	templatedir = /Users/masozawa/.git_template/
+	templatedir = ~/.git_template/
 [ghq]
 	root = ~/.ghq/src
