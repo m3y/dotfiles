@@ -54,3 +54,8 @@ key_bindings:
   - { key: Equals, mods: Control,       action: IncreaseFontSize }
   - { key: Minus,  mods: Control,       action: DecreaseFontSize }
   - { key: Return, mods: Alt,           action: ToggleFullscreen }
+
+shell:
+  program: /usr/bin/zsh
+  args:
+    - --login
