@@ -22,10 +22,11 @@
 !/.tmux.conf
 !/.vimrc
 !/.vim/
-!/.vim/**
+!/.vim/plugins/**
+!/.vim/rc/**
+!/.vim/templates/**
 !/.xprofile
 !/.zprofile
 !/.zshrc
 !/README.md
 !/install
-!/target_list
