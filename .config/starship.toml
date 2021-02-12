@@ -1,8 +1,5 @@
 add_newline = false
 
-[git_status]
-disabled = true
-
 [kubernetes]
 symbol = "☸  "
 style = "dimmed blue"
