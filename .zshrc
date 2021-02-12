@@ -10,6 +10,7 @@
 #  - Starship
 #  - asdf
 #  - https://github.com/soimort/translate-shell
+#  - https://github.com/m3y/kctx
 
 # vim mode
 bindkey -v
