@@ -36,11 +36,13 @@ How to install
 --------------
 
 1. Clone
+
 ```
 $ git clone https://github.com/m3y/kctx.git
 ```
 
 2. Install(create symlink)
+
 ```
 $ ./install
   Install the following files.
