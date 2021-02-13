@@ -47,7 +47,6 @@ $ git clone https://github.com/m3y/kctx.git
 $ ./install
   Install the following files.
     .gitconfig
-    .gitconfig.local
     .tmux.conf
     .zprofile
     .zshrc
