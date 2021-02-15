@@ -1,9 +1,13 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-#[[plugins]]
-#repo = 'altercation/vim-colors-solarized'
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
 #hook_add = 'source ~/.vim/plugins/vim-colors-solarized.vim'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+hook_add = 'source ~/.vim/plugins/gruvbox.vim'
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
@@ -51,10 +55,6 @@ repo = 'mattn/vim-lsp-icons'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
-
-[[plugins]]
-repo = 'morhetz/gruvbox'
-hook_add = 'source ~/.vim/plugins/gruvbox.vim'
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'

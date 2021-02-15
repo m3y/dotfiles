@@ -13,13 +13,14 @@ on_ft = ['markdown', 'mkd']
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle']
-#depends = ['vim-devicons', 'vim-nerdtree-syntax-highlight', 'nerdtree-git-plugin']
 depends = ['vim-devicons', 'vim-nerdtree-syntax-highlight']
 hook_add = 'source ~/.vim/plugins/nerdtree.vim'
 hook_source = 'call config#init#nerdtree#hook_source()'
 
 [[plugins]]
 repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+hook_add = 'source ~/.vim/plugins/vim-nerdtree-syntax-highlight.vim'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+hook_add = 'source ~/.vim/plugins/vim-devicons.vim'
