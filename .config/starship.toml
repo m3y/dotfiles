@@ -6,6 +6,7 @@ style = "dimmed blue"
 disabled = false
 
 [aws]
+symbol = "󿟲 "
 disabled = true
 
 [terraform]
