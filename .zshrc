@@ -27,10 +27,17 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias mkdir="mkdir -p"
 alias cat="bat"
-alias pbcopy="xsel --clipboard --input"
-alias open="xdg-open"
+#alias pbcopy="xsel --clipboard --input"
+#alias open="xdg-open"
 alias jq="gojq"
 alias kctx="source ~/.ghq/src/github.com/m3y/kctx/kctx"
+alias pc="p -c"  # osx
+alias diff="colordiff"  # osx
+alias k="kubecolor"  # osx
+alias ax="source ~/.ghq/src/github.com/m3y/asctx/asctx"
+#alias terraform="aws2-wrap terraform"
+#alias eksctl="aws2-wrap eksctl"
+#alias k="aws2-wrap kubectl"
 
 # common
 setopt IGNORE_EOF
@@ -119,8 +126,10 @@ zplug load
 # ===== /zplug =====
 
 # for asdf
-if [[ -d ~/.asdf ]]; then
-  . ${HOME}/.asdf/asdf.sh
+#if [[ -d ${HOME}/.asdf ]]; then
+if [[ -d $(brew --prefix asdf)/.asdf ]]; then # osx
+  #. ${HOME}/.asdf/asdf.sh
+  . $(brew --prefix asdf)/asdf.sh  # osx
   fpath=(${ASDF_DIR}/completions $fpath)
 fi
 
@@ -132,7 +141,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # tmux control
 if [ -z "${TMUX}" ]; then
-  /usr/bin/tmux
+  #/usr/bin/tmux  # arch
+  /usr/local/bin/tmux  # osx
 fi
 
 # start starship

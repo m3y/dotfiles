@@ -1,16 +1,23 @@
 add_newline = false
 
 [kubernetes]
-symbol = "☸  "
+symbol = "☸ "
 style = "dimmed blue"
 disabled = false
 
 [aws]
 symbol = "󿟲 "
-disabled = true
+#disabled = true
 
 [terraform]
-show_version = true
+disabled = true
+
+[custom.tf]
+command = "echo \"v`asdf current terraform | awk '{print $2}'`\""
+when = """ find -f *.tf """
+symbol = "💠 "
+style = "bold 105"
+format = "via [$symbol$output]($style) "
 
 [rust]
 symbol = " "

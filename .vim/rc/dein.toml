@@ -7,7 +7,11 @@ repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'morhetz/gruvbox'
-hook_add = 'source ~/.vim/plugins/gruvbox.vim'
+#hook_add = 'source ~/.vim/plugins/gruvbox.vim'
+
+[[plugins]]
+repo = 'ghifarit53/tokyonight-vim'
+hook_add = 'source ~/.vim/plugins/tokyonight-vim.vim'
 
 [[plugins]]
 repo = 'vim-scripts/sudo.vim'
