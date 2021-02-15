@@ -22,8 +22,11 @@
 !/.tmux.conf
 !/.vimrc
 !/.vim/
+!/.vim/plugins/
 !/.vim/plugins/**
+!/.vim/rc/
 !/.vim/rc/**
+!/.vim/templates/
 !/.vim/templates/**
 !/.xprofile
 !/.zprofile
