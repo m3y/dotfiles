@@ -1,11 +1,11 @@
-memodir = "~/.ghq/src/github.com/m3y/documents"
-editor = "${EDITOR}"
+memodir = "/home/m3y/.ghq/src/github.com/m3y/documents"
+editor = "/usr/bin/vim"
 column = 30
 width = 0
 selectcmd = "peco"
 grepcmd = "grep -nH ${PATTERN} ${FILES}"
 memotemplate = ""
 assetsdir = "."
-pluginsdir = "~/.config/memo-plugins"
+pluginsdir = "/home/m3y/.config/memo-plugins"
 templatedirfile = ""
 templatebodyfile = ""
