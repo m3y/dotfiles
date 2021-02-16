@@ -30,7 +30,7 @@ alias cat="bat"
 alias pbcopy="xsel --clipboard --input"
 alias open="xdg-open"
 alias jq="gojq"
-alias kctx="source /home/m3y/.ghq/src/github.com/m3y/kctx/kctx"
+alias kctx="source ~/.ghq/src/github.com/m3y/kctx/kctx"
 
 # common
 setopt IGNORE_EOF
