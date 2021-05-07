@@ -1,10 +1,10 @@
 # This setting requires the following command.
 #
-#  - asdf
 #  - bat
 #  - ghq
 #  - gojq
 #  - kctx(https://github.com/m3y/kctx)
+#  - lsd
 #  - peco
 #  - starship
 #  - vim
@@ -119,8 +119,10 @@ zplug load
 # ===== /zplug =====
 
 # for asdf
-. ${HOME}/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+if [[ -d ~/.asdf ]]; then
+  . ${HOME}/.asdf/asdf.sh
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
 
 # completion
 autoload -Uz compinit
