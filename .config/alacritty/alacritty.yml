@@ -8,9 +8,7 @@ font:
   italic:
     family: Cica
     style: Italic
-  size: 14.0
-
-background_opacity: 0.9
+  size: 18.0
 
 colors:
   # Colors (Solarized Dark)
@@ -40,6 +38,7 @@ colors:
     white:   '0xfdf6e3' # base3
 
 window:
+  opacity: 0.9
   padding:
     x: 5
     y: 0
@@ -56,6 +55,7 @@ key_bindings:
   - { key: Return, mods: Alt,           action: ToggleFullscreen }
 
 shell:
-  program: /usr/bin/zsh
+  #program: /usr/bin/zsh
+  program: /bin/zsh
   args:
     - --login
