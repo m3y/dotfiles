@@ -70,3 +70,6 @@ hook_add = 'source ~/.vim/plugins/vim-quickrun.vim'
 
 [[plugins]]
 repo = 'skanehira/translate.vim'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'

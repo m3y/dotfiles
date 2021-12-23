@@ -34,10 +34,10 @@ alias kctx="source ~/.ghq/src/github.com/m3y/kctx/kctx"
 alias pc="p -c"  # osx
 alias diff="colordiff"  # osx
 alias k="kubecolor"  # osx
-alias ax="source ~/.ghq/src/github.com/m3y/asctx/asctx"
-#alias terraform="aws2-wrap terraform"
-#alias eksctl="aws2-wrap eksctl"
-#alias k="aws2-wrap kubectl"
+alias ax="source ~/.ghq/src/github.com/m3y/asctx/asctx" # osx
+alias docker="lima nerdctl" # osx
+alias kx="kctx" # osx
+alias kc="kctx -c" # osx
 
 # common
 setopt IGNORE_EOF
@@ -126,10 +126,8 @@ zplug load
 # ===== /zplug =====
 
 # for asdf
-#if [[ -d ${HOME}/.asdf ]]; then
-if [[ -d $(brew --prefix asdf)/.asdf ]]; then # osx
-  #. ${HOME}/.asdf/asdf.sh
-  . $(brew --prefix asdf)/asdf.sh  # osx
+if [[ -d ${HOME}/.asdf ]]; then
+  . ${HOME}/.asdf/asdf.sh
   fpath=(${ASDF_DIR}/completions $fpath)
 fi
 

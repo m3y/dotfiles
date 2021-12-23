@@ -28,7 +28,7 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # for poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+#export PATH="$HOME/.poetry/bin:$PATH"
 
 # for Java
 export JAVA_HOME=`/usr/libexec/java_home -v "11"`

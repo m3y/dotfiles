@@ -1,5 +1,6 @@
 memodir = "/Users/masozawa/.ghq/src/github.com/m3y/documents"
-editor = "/usr/bin/vim"
+#editor = "/usr/bin/vim"
+editor = "/usr/local/bin/vim"
 column = 30
 width = 0
 selectcmd = "peco"
