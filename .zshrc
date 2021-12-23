@@ -126,10 +126,8 @@ zplug load
 # ===== /zplug =====
 
 # for asdf
-#if [[ -d ${HOME}/.asdf ]]; then
-if [[ -d $(brew --prefix asdf)/.asdf ]]; then # osx
-  #. ${HOME}/.asdf/asdf.sh
-  . $(brew --prefix asdf)/asdf.sh  # osx
+if [[ -d ${HOME}/.asdf ]]; then
+  . ${HOME}/.asdf/asdf.sh
   fpath=(${ASDF_DIR}/completions $fpath)
 fi
 
