@@ -140,7 +140,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # tmux control
 if [ -z "${TMUX}" ]; then
   #/usr/bin/tmux  # arch
-  /usr/local/bin/tmux  # osx
+  #/usr/local/bin/tmux  # osx
 fi
 
 # start starship

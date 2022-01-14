@@ -14,6 +14,8 @@
 !/.config/ulauncher/extensions.json
 !/.config/ulauncher/shortcuts.json
 !/.config/starship.toml
+!/.config/zellij/
+!/.config/zellij/config.yaml
 !/.gitconfig
 !/.gitconfig.local
 !/.gitignore
