@@ -36,6 +36,7 @@ alias diff="colordiff"  # osx
 alias k="kubecolor"  # osx
 alias ax="source ~/.ghq/src/github.com/m3y/asctx/asctx" # osx
 alias docker="lima nerdctl" # osx
+alias docker-compose="docker compose" # osx
 alias kx="kctx" # osx
 alias kc="kctx -c" # osx
 
