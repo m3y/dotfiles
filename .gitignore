@@ -13,6 +13,8 @@
 !/.config/ulauncher/settings.json
 !/.config/ulauncher/extensions.json
 !/.config/ulauncher/shortcuts.json
+!/.config/starship/
+!/.config/starship/tf_helper.sh
 !/.config/starship.toml
 !/.gitconfig
 !/.gitconfig.local

@@ -13,9 +13,9 @@ symbol = "󿟲 "
 disabled = true
 
 [custom.tf]
-command = "echo \"v`asdf current terraform | awk '{print $2}'`\""
+command = "echo \"`sh ~/.config/starship/tf_helper.sh`\""
 when = """ find -f *.tf """
-symbol = "💠 "
+symbol = "💠"
 style = "bold 105"
 format = "via [$symbol$output]($style) "
 
