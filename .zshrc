@@ -126,12 +126,6 @@ zplug load
 
 # ===== /zplug =====
 
-# for asdf
-if [[ -d ${HOME}/.asdf ]]; then
-  . ${HOME}/.asdf/asdf.sh
-  fpath=(${ASDF_DIR}/completions $fpath)
-fi
-
 # completion
 autoload -Uz compinit
 compinit
@@ -141,7 +135,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # tmux control
 if [ -z "${TMUX}" ]; then
   #/usr/bin/tmux  # arch
-  /usr/local/bin/tmux  # osx
+  /opt/homebrew/bin/tmux  # osx
 fi
 
 # start starship

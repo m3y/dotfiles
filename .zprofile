@@ -18,27 +18,25 @@ export GO111MODULE=on
 export PATH="${PATH}:${GOPATH}/bin"
 
 # for krew
-export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="${KREW_ROOT:-${HOME}/.krew}/bin:${PATH}"
 
 # for pipenv
 export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_IGNORE_VIRTUALENVS=1
 
 # for Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# for poetry
-#export PATH="$HOME/.poetry/bin:$PATH"
-
-# for Java
-export JAVA_HOME=`/usr/libexec/java_home -v "11"`
-export PATH="${JAVA_HOME}/bin:${PATH}"
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 # for local
 export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin"
 
 # for homebrew
-export PATH="/usr/local/sbin:${PATH}"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+
+# for aqua
+export AQUA_ROOT_DIR=${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
+export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
+export PATH="${AQUA_ROOT_DIR}/bin:${PATH}"
 
 # for pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
