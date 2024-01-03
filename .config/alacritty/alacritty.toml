@@ -1,0 +1,102 @@
+[colors]
+transparent_background_colors = true
+
+[[colors.indexed_colors]]
+color = "0xffa066"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xff5d62"
+index = 17
+
+[colors.bright]
+black = "0x727169"
+blue = "0x7fb4ca"
+cyan = "0x7aa89f"
+green = "0x98bb6c"
+magenta = "0x938aa9"
+red = "0xe82424"
+white = "0xdcd7ba"
+yellow = "0xe6c384"
+
+[colors.normal]
+black = "0x16161D"
+blue = "0x7e9cd8"
+cyan = "0x6a9589"
+green = "0x76946a"
+magenta = "0x957fb8"
+red = "0xc34043"
+white = "0xc8c093"
+yellow = "0xc0a36e"
+
+[colors.primary]
+background = "0x1f1f28"
+foreground = "0xdcd7ba"
+
+[colors.selection]
+background = "0x2d4f67"
+foreground = "0xc8c093"
+
+[font]
+size = 14.0
+
+[font.bold]
+family = "Cica"
+style = "Bold"
+
+[font.bold_italic]
+family = "Cica"
+style = "Bold Italic"
+
+[font.italic]
+family = "Cica"
+style = "Italic"
+
+[font.normal]
+family = "Cica"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Alt"
+
+[shell]
+args = ["--login"]
+program = "/usr/bin/zsh"
+
+[window]
+opacity = 0.9
+
+[window.dimensions]
+columns = 120
+lines = 50
+
+[window.padding]
+x = 5
+y = 0
