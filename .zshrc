@@ -118,12 +118,6 @@ zplug load
 
 # ===== /zplug =====
 
-# for asdf
-if [[ -d ~/.asdf ]]; then
-  . ${HOME}/.asdf/asdf.sh
-  fpath=(${ASDF_DIR}/completions $fpath)
-fi
-
 # completion
 autoload -Uz compinit
 compinit
@@ -137,3 +131,6 @@ fi
 
 # start starship
 eval "$(starship init zsh)"
+
+# acrivate mise
+eval "$(~/.local/share/mise/bin/mise activate zsh)"

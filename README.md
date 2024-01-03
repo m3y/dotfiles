@@ -18,15 +18,15 @@ Environment
 
 Dependency
 ----------
-- [asdf](https://github.com/asdf-vm/asdf)
-- [bat](https://github.com/sharkdp/bat)
-- [ghq](https://github.com/x-motemen/ghq)
-- [gojq](https://github.com/itchyny/gojq)
+- [mise](https://mise.jdx.dev/)
+  - [bat](https://github.com/sharkdp/bat)
+  - [ghq](https://github.com/x-motemen/ghq)
+  - [gojq](https://github.com/itchyny/gojq)
+  - [fzf](https://github.com/peco/peco)
+  - [starship](https://starship.rs/)
 - [kctx](https://github.com/m3y/kctx)
 - [lsd](https://github.com/Peltoche/lsd)
 - [memo](https://github.com/mattn/memo)
-- [peco](https://github.com/peco/peco)
-- [starship](https://starship.rs/)
 - [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
 - xdg-open
 - xsel
