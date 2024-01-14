@@ -9,6 +9,8 @@
 !/.config/alacritty/**
 !/.config/memo/
 !/.config/memo/**
+!/.config/mise/
+!/.config/mise/**
 !/.config/ulauncher/
 !/.config/ulauncher/settings.json
 !/.config/ulauncher/extensions.json

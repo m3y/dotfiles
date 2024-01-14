@@ -17,6 +17,9 @@ export GOPATH="${HOME}/.go"
 export GO111MODULE=on
 export PATH="${PATH}:${GOPATH}/bin"
 
+# for fzf
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
 # for krew
 export PATH="${PATH}:${HOME}/.krew/bin"
 
