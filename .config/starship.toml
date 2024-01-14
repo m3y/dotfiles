@@ -7,10 +7,10 @@ disabled = false
 
 [aws]
 symbol = "󿟲 "
-disabled = true
+expiration_symbol = 'X'
 
 [terraform]
-show_version = true
+version_format = 'v${raw}'
 
 [rust]
 symbol = " "
