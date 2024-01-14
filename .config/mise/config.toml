@@ -12,6 +12,11 @@ ghq = 'latest'
 gojq = 'latest'
 bat = 'latest'
 starship = 'latest'
+awscli = 'latest'
+aws-vault = 'latest'
+github-cli = 'latest'
+eza = 'latest'
+delta = 'latest'
 
 [plugins]
 # specify a custom repo url

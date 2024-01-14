@@ -20,12 +20,14 @@ Dependency
 ----------
 - [mise](https://mise.jdx.dev/)
   - [bat](https://github.com/sharkdp/bat)
+  - [eza](https://github.com/eza-community/eza)
+  - [delta](https://github.com/dandavison/delta)
+  - [fzf](https://github.com/peco/peco)
+  - [gh](https://cli.github.com/)
   - [ghq](https://github.com/x-motemen/ghq)
   - [gojq](https://github.com/itchyny/gojq)
-  - [fzf](https://github.com/peco/peco)
   - [starship](https://starship.rs/)
 - [kctx](https://github.com/m3y/kctx)
-- [lsd](https://github.com/Peltoche/lsd)
 - [memo](https://github.com/mattn/memo)
 - [ulauncher-pass-paster](https://github.com/m3y/ulauncher-pass-paster)
 - xdg-open

@@ -1,11 +1,12 @@
 # This setting requires the following command.
 #
 #  - bat
+#  - eza
+#  - delta
+#  - fzf
 #  - ghq
 #  - gojq
 #  - kctx(https://github.com/m3y/kctx)
-#  - lsd
-#  - peco
 #  - starship
 #  - vim
 #  - xsel
@@ -18,8 +19,9 @@ bindkey -v
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias ls="lsd"
+alias ls="eza --icons=auto"
 alias ll="clear;ls -lha"
+alias diff="delta"
 alias vi="vim"
 alias c="clear"
 alias mv="mv -i"
@@ -45,16 +47,16 @@ setopt PUSHD_IGNORE_DUPS
 
 cdpath=(.. ~)
 
-function peco-src() {
-  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+function fzf-src() {
+  local selected_dir=$(ghq list --full-path | fzf -1 +m)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^g' peco-src
+zle -N fzf-src
+bindkey '^g' fzf-src
 
 # history
 setopt SHARE_HISTORY
@@ -73,7 +75,7 @@ bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
 
 function select_history() {
-  BUFFER=$(history -n -r 1 | awk '!a[$0]++' | peco)
+  BUFFER=$(history -n -r 1 | awk '!a[$0]++' | fzf)
   CURSOR=$#BUFFER
   zle reset-prompt
 }
