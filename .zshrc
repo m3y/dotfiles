@@ -120,6 +120,9 @@ zplug load
 
 # ===== /zplug =====
 
+# acrivate mise
+eval "$(~/.local/bin/mise activate zsh)"
+
 # completion
 autoload -Uz compinit
 compinit
@@ -133,6 +136,3 @@ fi
 
 # start starship
 eval "$(starship init zsh)"
-
-# acrivate mise
-eval "$(~/.local/share/mise/bin/mise activate zsh)"

@@ -25,3 +25,9 @@
 	templatedir = ~/.git_template/
 [ghq]
 	root = ~/.ghq/src
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/m3y/.local/share/mise/installs/github-cli/2.44.1/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/m3y/.local/share/mise/installs/github-cli/2.44.1/bin/gh auth git-credential
